@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>纳米金属粉末与纳米陶瓷粉末材料投资意见报告</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --accent: #e8602c;
+    --gold: #c9a227;
+    --green: #2d7d46;
+    --red: #c0392b;
+    --gray: #6c757d;
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --border: #dde3ea;
+    --text: #1e2d3d;
+    --text-light: #5a6a7a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+  /* ── 顶部封面 ── */
+  .cover {
+    background: linear-gradient(135deg, #0d2137 0%, #1a3a5c 50%, #0d2137 100%);
+    color: #fff; padding: 60px 40px 50px; text-align: center;
+  }
+  .cover .tag { display: inline-block; background: var(--accent); color:#fff; font-size:12px; padding:4px 14px; border-radius:20px; margin-bottom:18px; letter-spacing:2px; }
+  .cover h1 { font-size: 2.2rem; font-weight: 700; line-height: 1.4; margin-bottom: 14px; }
+  .cover .subtitle { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 28px; }
+  .cover .meta { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+  .cover .meta-item { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+  .cover .meta-item span { display: block; color: #fff; font-size: 1rem; font-weight: 600; margin-top: 2px; }
+
+  /* ── 导航 ── */
+  nav { background: var(--primary); position: sticky; top: 0; z-index: 100; display: flex; overflow-x: auto; }
+  nav a { color: rgba(255,255,255,0.75); text-decoration: none; padding: 14px 20px; white-space: nowrap; font-size: 0.85rem; transition: all 0.2s; border-bottom: 3px solid transparent; }
+  nav a:hover { color: #fff; border-bottom-color: var(--accent); }
+
+  /* ── 布局 ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 20px; }
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.5rem; font-weight: 700; color: var(--primary); border-left: 5px solid var(--accent); padding-left: 14px; margin-bottom: 24px; padding-top: 4px; padding-bottom: 4px; }
+  .sub-title { font-size: 1.15rem; font-weight: 700; color: var(--primary); margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 2px solid var(--border); }
+  .card { background: var(--card); border-radius: 10px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 20px; border: 1px solid var(--border); }
+
+  /* ── 图表网格 ── */
+  .chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; margin-bottom: 32px; }
+  .chart-card { background: var(--card); border-radius: 10px; padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border: 1px solid var(--border); }
+  .chart-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 14px; text-align: center; }
+  .chart-card canvas { max-height: 280px; }
+
+  /* ── 评级标签 ── */
+  .rating { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; font-size: 0.9rem; padding: 3px 10px; border-radius: 4px; }
+  .rating.r3 { background: #fff3e0; color: #e65100; }
+  .rating.r2 { background: #e8f5e9; color: #2e7d32; }
+  .rating.r1 { background: #e3f2fd; color: #1565c0; }
+  .rating.r0 { background: #fce4ec; color: #880e4f; }
+
+  /* ── 代际标签 ── */
+  .gen { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; }
+  .gen.adv { background: #e8f0fe; color: #1a3a5c; }
+  .gen.main { background: #e6f4ea; color: #1e6b38; }
+  .gen.leg { background: #fef3e2; color: #7b4f00; }
+
+  /* ── 表格 ── */
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th { background: var(--primary); color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  tr:hover td { background: #eef2f7; }
+
+  /* ── 产品块 ── */
+  .product-block { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 24px; overflow: hidden; }
+  .product-header { background: var(--primary); color: #fff; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+  .product-header h3 { font-size: 1.05rem; }
+  .product-body { padding: 20px; }
+  .gen-section { border-left: 4px solid; padding: 14px 16px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+  .gen-section.adv { border-color: #1a3a5c; background: #f0f4ff; }
+  .gen-section.main { border-color: #2d7d46; background: #f0faf3; }
+  .gen-section.leg { border-color: #c9a227; background: #fffbf0; }
+  .gen-section h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+  .gen-section.adv h4 { color: #1a3a5c; }
+  .gen-section.main h4 { color: #2d7d46; }
+  .gen-section.leg h4 { color: #7b4f00; }
+  .info-row { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 6px 0; font-size: 0.87rem; }
+  .info-row .label { color: var(--text-light); }
+  .info-row .value { font-weight: 600; color: var(--text); }
+  .advice-box { background: var(--primary); color: #fff; border-radius: 6px; padding: 10px 14px; margin-top: 10px; font-size: 0.87rem; }
+  .advice-box.warn { background: #7b1f1f; }
+  .advice-box.caution { background: #1e4d72; }
+  .advice-box.watch { background: #2d4a6e; }
+
+  /* ── 风险专区 ── */
+  .risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; }
+  .risk-card { border-radius: 8px; padding: 18px; border-left: 5px solid; }
+  .risk-card.critical { border-color: #c0392b; background: #fdf1f0; }
+  .risk-card.high { border-color: #e67e22; background: #fef9f0; }
+  .risk-card.medium { border-color: #f1c40f; background: #fefdf0; }
+  .risk-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+  .risk-card.critical h4 { color: #c0392b; }
+  .risk-card.high h4 { color: #d35400; }
+  .risk-card.medium h4 { color: #856404; }
+  .risk-card p { font-size: 0.85rem; color: var(--text); line-height: 1.6; }
+  .risk-tag { display: inline-block; font-size: 0.75rem; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; font-weight: 700; }
+  .risk-tag.c { background: #c0392b; color: #fff; }
+  .risk-tag.h { background: #e67e22; color: #fff; }
+  .risk-tag.m { background: #f1c40f; color: #333; }
+
+  /* ── 认证风险专栏 ── */
+  .cert-timeline { position: relative; padding-left: 28px; margin: 16px 0; }
+  .cert-timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+  .cert-step { position: relative; margin-bottom: 18px; }
+  .cert-step::before { content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--accent); }
+  .cert-step h5 { font-size: 0.9rem; font-weight: 700; color: var(--primary); }
+  .cert-step p { font-size: 0.84rem; color: var(--text-light); margin-top: 3px; }
+  .cert-step .duration { font-size: 0.8rem; background: #fee2e2; color: #991b1b; padding: 1px 8px; border-radius: 10px; display: inline-block; margin-top: 4px; }
+
+  /* ── 矩阵汇总 ── */
+  .matrix-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; }
+  .mb-r3 { background:#fff3e0; color:#e65100; }
+  .mb-r2 { background:#e8f5e9; color:#2e7d32; }
+  .mb-r1 { background:#e3f2fd; color:#1565c0; }
+  .mb-r0 { background:#fce4ec; color:#880e4f; }
+
+  /* ── 标的汇总卡 ── */
+  .stock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .stock-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+  .stock-card .code { font-size: 0.8rem; color: var(--text-light); }
+  .stock-card .name { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin: 4px 0; }
+  .stock-card .stars { color: var(--accent); font-size: 1rem; margin-bottom: 8px; }
+  .stock-card .logic { font-size: 0.83rem; color: var(--text); border-top: 1px solid var(--border); padding-top: 8px; margin-top: 8px; }
+  .stock-card .risk-note { font-size: 0.8rem; color: var(--red); margin-top: 6px; }
+
+  footer { background: var(--primary); color: rgba(255,255,255,0.5); text-align: center; padding: 24px; font-size: 0.8rem; margin-top: 48px; }
+</style>
+</head>
+<body>
+
+<!-- 封面 -->
+<div class="cover">
+  <div class="tag">投资研究报告</div>
+  <h1>纳米金属粉末与纳米陶瓷粉末<br>材料投资意见报告</h1>
+  <div class="subtitle">超临界水热合成（SCHS）技术视角 · 代际分析 · 认证风险专项评估</div>
+  <div class="meta">
+    <div class="meta-item">编制日期<span>2026年5月</span></div>
+    <div class="meta-item">研究品类<span>8类纳米粉体</span></div>
+    <div class="meta-item">核心标的<span>6支A股</span></div>
+    <div class="meta-item">技术视角<span>SCHS + 替代工艺</span></div>
+  </div>
+</div>
+
+<!-- 导航 -->
+<nav>
+  <a href="#overview">总纲</a>
+  <a href="#charts">可视化总览</a>
+  <a href="#metal">纳米金属粉末</a>
+  <a href="#ceramic">纳米陶瓷粉末</a>
+  <a href="#cert-risk">认证风险专栏</a>
+  <a href="#matrix">横向矩阵</a>
+  <a href="#schs">SCHS战略评估</a>
+  <a href="#stocks">核心标的</a>
+</nav>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════
+     第1章 总纲与评级框架
+════════════════════════════════════════════ -->
+<div class="section" id="overview">
+  <div class="section-title">1. 报告总纲与评级框架</div>
+  <div class="card">
+    <div class="sub-title" style="margin-top:0">技术代际定义</div>
+    <table>
+      <tr><th>代际</th><th>定义</th><th>典型特征</th></tr>
+      <tr><td><span class="gen adv">先进型 Next-Gen</span></td><td>当前量产技术边界前沿，仅少数企业可量产</td><td>粒径极细、PDI&lt;0.1、形貌可控；依赖超高压水热/SCHS/顶级PVD；价格溢价显著</td></tr>
+      <tr><td><span class="gen main">主流型 Mainstream</span></td><td>行业量产主力，供需相对均衡</td><td>工艺成熟，多家企业具备；竞争加剧；国产替代核心战场</td></tr>
+      <tr><td><span class="gen leg">落后型 Legacy</span></td><td>产能过剩、价格下行，利润受压</td><td>固相法/普通球磨；粒径大（微米级）；高端应用逐步被替换</td></tr>
+    </table>
+    <div class="sub-title">投资评级</div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <div class="rating r3">★★★ 强烈推荐</div><div style="font-size:0.87rem;align-self:center">市场高速增长 + 技术壁垒高 + 国产替代空间大，战略布局窗口</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+      <div class="rating r2">★★ 推荐</div><div style="font-size:0.87rem;align-self:center">基本面良好，但竞争加剧或市场规模有上限</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+      <div class="rating r1">★ 观察</div><div style="font-size:0.87rem;align-self:center">市场存在但关键变量尚未明朗，建议等待验证后介入</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+      <div class="rating r0">✗ 回避</div><div style="font-size:0.87rem;align-self:center">产能过剩、价格持续下行、无差异化优势</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     第2章 可视化总览
+════════════════════════════════════════════ -->
+<div class="section" id="charts">
+  <div class="section-title">2. 可视化总览</div>
+  <div class="chart-grid">
+    <!-- 图1：市场规模对比 -->
+    <div class="chart-card">
+      <h3>先进型纳米粉体全球市场规模估算（亿元，2025E）</h3>
+      <canvas id="chartMarket"></canvas>
+    </div>
+    <!-- 图2：国产替代率 -->
+    <div class="chart-card">
+      <h3>各品类先进型产品国产替代率（%）</h3>
+      <canvas id="chartDomestic"></canvas>
+    </div>
+    <!-- 图3：MLCC规格-粒径-价格 -->
+    <div class="chart-card">
+      <h3>MLCC规格代际：BaTiO₃粒径 vs 粉体价格</h3>
+      <canvas id="chartMlcc"></canvas>
+    </div>
+    <!-- 图4：认证风险热力 -->
+    <div class="chart-card">
+      <h3>各品类认证周期 vs 认证失败概率（气泡=市场规模）</h3>
+      <canvas id="chartCert"></canvas>
+    </div>
+    <!-- 图5：综合评分雷达 -->
+    <div class="chart-card">
+      <h3>核心标的综合能力雷达图</h3>
+      <canvas id="chartRadar"></canvas>
+    </div>
+    <!-- 图6：投资优先级 -->
+    <div class="chart-card">
+      <h3>SCHS技术落地优先级评分</h3>
+      <canvas id="chartPriority"></canvas>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     第3章 纳米金属粉末
+════════════════════════════════════════════ -->
+<div class="section" id="metal">
+  <div class="section-title">3. 纳米金属粉末</div>
+
+  <!-- 3.1 铜粉 -->
+  <div class="product-block">
+    <div class="product-header">
+      <h3>3.1 纳米铜粉（Nano Copper Powder）</h3>
+      <span class="rating r3">★★★ 强烈推荐（先进型）</span>
+    </div>
+    <div class="product-body">
+      <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:14px">核心应用：MLCC内电极 / 光伏铜替银 / SiC功率封装 / PCB互联 / 工业催化</p>
+
+      <div class="gen-section leg">
+        <h4>【落后型】微米铜粉（&gt;1μm）</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">雾化法、电解法</span>
+          <span class="label">市场规模</span><span class="value">~20亿元（国内，粉末冶金）</span>
+          <span class="label">主要制造方</span><span class="value">金川集团、博威合金、安泰科技</span>
+        </div>
+        <div class="advice-box warn">✗ 回避 — 纳米化应用不断蚕食传统场景，估值天花板明确</div>
+      </div>
+
+      <div class="gen-section main">
+        <h4>【主流型】亚微米铜粉（200~800nm）— 光伏铜替银浆料</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">液相还原法、湿化学法、常压PVD</span>
+          <span class="label">粒径</span><span class="value">200~800nm，氧含量&lt;1%</span>
+          <span class="label">市场规模</span><span class="value">潜在~80~120亿元；当前放量~10~20亿元</span>
+        </div>
+        <table style="margin:10px 0">
+          <tr><th>公司</th><th>代码</th><th>核心能力</th><th>备注</th></tr>
+          <tr><td>江苏翰侨新材料</td><td>未上市</td><td>危固废转化，规划10.5万吨</td><td>低成本路线，待观察良品率</td></tr>
+          <tr><td>安徽纳洛米特</td><td>未上市</td><td>ECHSR电化学热溶剂还原法，年产180吨</td><td>工艺独特，规模尚小</td></tr>
+          <tr><td>苏州固锝（铜浆）</td><td>002079</td><td>与索特合作，光伏铜浆应用</td><td>银铜双线布局</td></tr>
+          <tr><td>博迁新材</td><td>605376</td><td>PVD气相法，平台型</td><td>同时布局镍/铜/银包铜</td></tr>
+        </table>
+        <p style="font-size:0.83rem;color:var(--text-light)">下游客户：帝科股份、苏州固锝、晶科能源、隆基绿能、晶澳科技</p>
+        <div class="advice-box caution">★★ 推荐（关注光伏替代进展）— 铜浆替代银浆是降本刚需，但光伏客户验证周期长（18~24个月），铜氧化可靠性为主要技术风险。2025~2026年关键验证窗口。</div>
+      </div>
+
+      <div class="gen-section adv">
+        <h4>【先进型】高端纳米铜粉（&lt;100nm，特别是&lt;50nm）</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">超临界水热（SCHS）、超高压水热、顶级PVD、原子团簇束流</span>
+          <span class="label">粒径</span><span class="value">20~100nm，氧含量&lt;0.3%，球形度&gt;0.9</span>
+        </div>
+        <div class="info-row">
+          <span class="label">MLCC内电极铜粉市场</span><span class="value">~30~50亿元（全球，日本主导）</span>
+          <span class="label">SiC封装烧结铜膏</span><span class="value">~10~15亿元（国产化率&lt;10%）</span>
+        </div>
+        <table style="margin:10px 0">
+          <tr><th>公司</th><th>国家/代码</th><th>市占率</th><th>技术特点</th></tr>
+          <tr><td>Shoei Chemical</td><td>日本</td><td>~22%</td><td>球形超细铜粉，全球最大</td></tr>
+          <tr><td>三井金属矿业</td><td>日本</td><td>~18%</td><td>6N超高纯，MLCC主力供应商</td></tr>
+          <tr><td>住友金属矿业</td><td>日本</td><td>~15%</td><td>稳定供应链，高纯</td></tr>
+          <tr><td>博迁新材</td><td>605376</td><td>突破中</td><td>常压PVD，粒径向高端延伸</td></tr>
+          <tr><td>重庆平创半导体</td><td>未上市</td><td>首家上车</td><td>有压烧结纳米铜膏，已量产</td></tr>
+        </table>
+        <p style="font-size:0.83rem;color:var(--text-light)">下游客户：村田制作所、三星电机、TDK（MLCC）；英飞凌、安森美、比亚迪半导体（SiC封装）</p>
+        <div class="advice-box">★★★ 强烈推荐 — 日系垄断正面临国产突破，一旦通过主要MLCC厂商认证将形成强壁垒。SCHS路线在粒径均一性上具备差异化优势，是战略切入点。<br><strong style="color:#ffcc80">⚠ 认证风险：MLCC厂商认证周期3~5年，失败概率约40%（初次认证）；SiC封装认证约2~3年，相对较短但对可靠性要求极高。详见第5章。</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3.2 银粉 -->
+  <div class="product-block">
+    <div class="product-header">
+      <h3>3.2 纳米银粉（Nano Silver Powder）</h3>
+      <span class="rating r3">★★★ 强烈推荐（先进型）</span>
+    </div>
+    <div class="product-body">
+      <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:14px">核心应用：TOPCon高温银浆 / HJT低温银浆 / BC电池银浆 / 导电胶封装</p>
+
+      <div class="gen-section leg">
+        <h4>【落后型】微米银粉 + PERC电池银浆</h4>
+        <div class="info-row">
+          <span class="label">市场规模</span><span class="value">预计2025~2026年PERC银浆下滑30~50%</span>
+        </div>
+        <div class="advice-box warn">✗ 坚决回避 — PERC产线加速淘汰，银浆需求随之萎缩</div>
+      </div>
+
+      <div class="gen-section main">
+        <h4>【主流型】TOPCon高温银浆用纳米银粉（200~500nm）</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">化学还原法（精细化）、微乳液法</span>
+          <span class="label">市场规模</span><span class="value">~100~150亿元（TOPCon银浆市场，2025E）</span>
+        </div>
+        <table style="margin:10px 0">
+          <tr><th>公司</th><th>代码</th><th>定位</th></tr>
+          <tr><td>帝科股份（+浙江索特）</td><td>300842</td><td>国内导电银浆龙头，收购索特实现纳米银粉垂直整合</td></tr>
+          <tr><td>苏州固锝</td><td>002079</td><td>银浆+铜浆双布局，定增纳米银粉项目</td></tr>
+          <tr><td>聚和材料</td><td>688503</td><td>TOPCon银浆市占率持续提升</td></tr>
+        </table>
+        <div class="advice-box caution">★★ 推荐 — TOPCon仍是主流节点，但需警惕2~3年内被BC/HJT替代的切换风险</div>
+      </div>
+
+      <div class="gen-section adv">
+        <h4>【先进型】HJT/BC低温银浆用超细纳米银粉（50~150nm）</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">精密化学还原、超临界辅助合成、喷雾热解</span>
+          <span class="label">粒径要求</span><span class="value">50~150nm，PDI&lt;0.15，150℃以下低温固化</span>
+        </div>
+        <div class="info-row">
+          <span class="label">HJT银浆市场（2025~2028E）</span><span class="value">~80~120亿元</span>
+          <span class="label">BC电池增量</span><span class="value">~50亿元（2028E，渗透率达20%）</span>
+        </div>
+        <p style="font-size:0.83rem;color:var(--text-light);margin:6px 0">下游客户：华晟新能源（HJT）、东方日升、爱康科技；隆基/TCL中环（BC）</p>
+        <div class="advice-box">★★★ 强烈推荐 — HJT/BC是未来3~5年技术主流，超细纳米银粉是核心耗材，国产替代率&lt;30%。苏州固锝定增+帝科/索特垂直整合双标的。<br><strong style="color:#ffcc80">⚠ 认证风险：光伏组件电池商认证周期约12~18个月，相对较短，但HJT浆料配方需逐型号认证，存在切换成本。</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3.3 镍粉 -->
+  <div class="product-block">
+    <div class="product-header">
+      <h3>3.3 纳米镍粉（Nano Nickel Powder）</h3>
+      <span class="rating r2">★★ 推荐（主流型）/ ★★★ 战略关注（先进型）</span>
+    </div>
+    <div class="product-body">
+      <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:14px">核心应用：MLCC内电极（最核心） / 电池导电剂 / 磁性材料</p>
+
+      <div class="gen-section leg">
+        <h4>【落后型】微米镍粉（&gt;1μm）</h4>
+        <div class="info-row"><span class="label">主要制造方</span><span class="value">金川集团、吉恩镍业</span></div>
+        <div class="advice-box warn">✗ 回避</div>
+      </div>
+
+      <div class="gen-section main">
+        <h4>【主流型】亚微米镍粉（200~500nm）— MLCC 0402~0201主力内电极</h4>
+        <div class="info-row">
+          <span class="label">市场规模</span><span class="value">~40~60亿元/年（全球MLCC内电极镍粉）</span>
+          <span class="label">国内唯一供货国际巨头的企业</span><span class="value">博迁新材（605376）</span>
+        </div>
+        <p style="font-size:0.83rem;color:var(--text-light);margin:6px 0">下游客户：村田制作所、三星电机、TDK、太阳诱电、国巨、华新科、风华高科</p>
+        <div class="advice-box caution">★★ 推荐 — 博迁新材是稀缺标的，产能释放期+MLCC景气度回升（2025H2预期）。风险：单一品类集中度高。<br><strong style="color:#ffcc80">⚠ 认证风险：博迁已完成村田认证（历时约4年），新产线扩产需重新送样验证，存在6~12个月延迟风险。</strong></div>
+      </div>
+
+      <div class="gen-section adv">
+        <h4>【先进型】高端超细镍粉（&lt;100nm）— 01005及更小规格</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">超临界热分解、顶级PVD、CVD</span>
+          <span class="label">市场规模</span><span class="value">~10~20亿元（全球），村田/三星几乎完全自供</span>
+          <span class="label">认证周期</span><span class="value">3~5年，进入门槛极高</span>
+        </div>
+        <div class="advice-box">★★★ 战略关注 — 日韩垄断，国内若有企业突破将具备极强定价权，SCHS最有价值落地场景之一</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     第4章 纳米陶瓷粉末
+════════════════════════════════════════════ -->
+<div class="section" id="ceramic">
+  <div class="section-title">4. 纳米陶瓷粉末</div>
+
+  <!-- 4.1 BaTiO3 -->
+  <div class="product-block">
+    <div class="product-header">
+      <h3>4.1 纳米钛酸钡（BaTiO₃）— "电子工业大米"核心原料</h3>
+      <span class="rating r3">★★★ 强烈推荐（先进型）</span>
+    </div>
+    <div class="product-body">
+      <div class="sub-title" style="margin-top:0">MLCC规格-粒径-工艺代际对照表</div>
+      <table>
+        <tr><th>MLCC规格</th><th>公制尺寸</th><th>介质层厚度</th><th>BaTiO₃粒径(D50)</th><th>制备工艺</th><th>粉体价格（万元/吨）</th><th>代际</th></tr>
+        <tr><td>1206/0805</td><td>落后型</td><td>8~20μm</td><td>300~500nm</td><td>固相法</td><td>8~15</td><td><span class="gen leg">落后型</span></td></tr>
+        <tr><td>0402</td><td>1.0×0.5mm</td><td>3~5μm</td><td>100~150nm</td><td>常规水热法</td><td>15~20</td><td><span class="gen leg">落后→主流</span></td></tr>
+        <tr><td><strong>0201</strong></td><td>0.6×0.3mm</td><td>1.5~2.5μm</td><td><strong>70~90nm（主力80nm）</strong></td><td>高压水热法</td><td>25~32</td><td><span class="gen main">主流型</span></td></tr>
+        <tr><td><strong>01005</strong></td><td>0.4×0.2mm</td><td>0.8~1.2μm</td><td><strong>40~60nm（主力50nm）</strong></td><td>超高压/超临界水热合成</td><td>35~45</td><td><span class="gen adv">先进型</span></td></tr>
+        <tr><td>008004</td><td>0.2×0.1mm</td><td>0.4~0.6μm</td><td>20~35nm</td><td>仅村田/三星超高端自研</td><td>50+</td><td><span class="gen adv">前沿型</span></td></tr>
+      </table>
+
+      <div class="gen-section leg" style="margin-top:16px">
+        <h4>【落后型】固相法BaTiO₃（粒径&gt;300nm）</h4>
+        <div class="info-row"><span class="label">市场规模</span><span class="value">~10~20亿元，价格持续下行</span></div>
+        <div class="advice-box warn">✗ 坚决回避</div>
+      </div>
+
+      <div class="gen-section main">
+        <h4>【主流型】水热法BaTiO₃（70~150nm）— 0402/0201规格</h4>
+        <div class="info-row"><span class="label">市场规模</span><span class="value">全球~40~60亿元，国产替代主力战场</span></div>
+        <table style="margin:10px 0">
+          <tr><th>公司</th><th>代码</th><th>核心定位</th><th>粒径能力</th></tr>
+          <tr><td><strong>国瓷材料</strong></td><td>300285</td><td>国内第一、全球前列；已向三星电机供货70~80nm粉体</td><td>70~150nm</td></tr>
+          <tr><td>凯盛科技</td><td>600552</td><td>央企背景，国内第二家产业化</td><td>100~200nm</td></tr>
+          <tr><td>三环集团（自产）</td><td>300408</td><td>垂直整合，自用为主</td><td>100nm以下</td></tr>
+          <tr><td>厦钨新能（贝思科）</td><td>600549</td><td>子公司专注高端</td><td>80nm以下</td></tr>
+          <tr><td>日本堺化学</td><td>TYO:4094</td><td>全球技术与市占率历史龙头</td><td>全粒径覆盖</td></tr>
+        </table>
+        <div class="advice-box caution">★★ 推荐（优选国瓷材料）— MLCC景气度底部反转，国瓷估值具备修复空间。需持续关注80nm以下研发进展。</div>
+      </div>
+
+      <div class="gen-section adv">
+        <h4>【先进型】超临界水热BaTiO₃（&lt;60nm）— 01005及以下规格</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">SCHS（T&gt;374℃，P&gt;22.1MPa），PDI&lt;0.1，四方相晶型完整</span>
+          <span class="label">市场规模</span><span class="value">~15~25亿元（全球），几乎由村田/三星自研内供</span>
+        </div>
+        <p style="font-size:0.83rem;color:var(--text-light);margin:6px 0">下游：Apple/三星旗舰手机、车规等级MLCC（需求爆发中）</p>
+        <div class="advice-box">★★★ 强烈推荐（SCHS最核心落地场景）— 日韩垄断且不外售，国内突破将具备极强定价权。国瓷材料预计2026~2027年突破60nm以下量产。<br><strong style="color:#ffcc80">⚠ 认证风险：进入村田/三星电机自研体系不现实；突破点在中国本土MLCC厂商（风华、三环），认证周期约2~3年；车规MLCC认证另需额外的AEC-Q200车规级验证，总周期可达4~6年。</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.2 ZrO2 -->
+  <div class="product-block">
+    <div class="product-header">
+      <h3>4.2 纳米氧化锆（ZrO₂）</h3>
+      <span class="rating r2">★★ 推荐（主流型）</span>
+    </div>
+    <div class="product-body">
+      <div class="gen-section leg">
+        <h4>【落后型】普通氧化锆（&gt;500nm，未稳定化）</h4>
+        <div class="advice-box warn">✗ 回避</div>
+      </div>
+      <div class="gen-section main">
+        <h4>【主流型】稳定化纳米ZrO₂（100~300nm，3Y-TZP）</h4>
+        <div class="info-row">
+          <span class="label">牙科氧化锆市场</span><span class="value">全球~50~80亿元，年增15%+</span>
+          <span class="label">消费电子陶瓷背板</span><span class="value">全球~30~50亿元</span>
+        </div>
+        <table style="margin:10px 0">
+          <tr><th>公司</th><th>代码</th><th>定位</th></tr>
+          <tr><td>国瓷材料</td><td>300285</td><td>国内口腔ZrO₂粉体龙头</td></tr>
+          <tr><td>东丽（日本）</td><td>日本</td><td>全球历史龙头（TZ系列）</td></tr>
+        </table>
+        <div class="advice-box caution">★★ 推荐 — 牙科市场老龄化驱动高增长，国瓷已建立优势。认证风险相对较低（义齿加工厂认证周期&lt;12个月）。</div>
+      </div>
+      <div class="gen-section adv">
+        <h4>【先进型】超细纳米ZrO₂（&lt;50nm，SOFC电解质级）</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">SCHS、水热微反应器</span>
+          <span class="label">市场规模</span><span class="value">全球~5~10亿元，氢能政策落地后放大</span>
+        </div>
+        <div class="advice-box watch">★ 观察 — 产业化节奏依赖氢能政策，Tosoh（东曹）日本垄断，认证周期长达5~8年（SOFC系统级认证）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.3 CeO2 -->
+  <div class="product-block">
+    <div class="product-header">
+      <h3>4.3 纳米氧化铈（CeO₂）— 半导体关键耗材</h3>
+      <span class="rating r3">★★★ 强烈推荐（先进型）</span>
+    </div>
+    <div class="product-body">
+      <div class="gen-section leg">
+        <h4>【落后型】普通氧化铈（&gt;500nm，玻璃抛光）</h4>
+        <div class="advice-box warn">✗ 回避</div>
+      </div>
+      <div class="gen-section main">
+        <h4>【主流型】催化级CeO₂（50~200nm，汽车三元催化）</h4>
+        <div class="info-row">
+          <span class="label">市场规模</span><span class="value">全球~30~50亿元</span>
+          <span class="label">主要制造方</span><span class="value">有研新材（600206）、国瓷材料、Solvay</span>
+        </div>
+        <div class="advice-box watch">★ 观察 — 新能源车替代燃油车大趋势下长期承压，燃油车存量维修市场还将持续10~15年</div>
+      </div>
+      <div class="gen-section adv">
+        <h4>【先进型】半导体级CeO₂ CMP抛光粉（&lt;20nm，粒径分布极窄）</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">SCHS、微反应器精密水热</span>
+          <span class="label">粒径要求</span><span class="value">D50=5~15nm，D99&lt;50nm，无团聚</span>
+        </div>
+        <div class="info-row">
+          <span class="label">CMP抛光液市场</span><span class="value">全球~300亿元，CeO₂基约占30%（~90亿元）</span>
+          <span class="label">CeO₂粉体市场</span><span class="value">~15~25亿元</span>
+        </div>
+        <table style="margin:10px 0">
+          <tr><th>公司</th><th>代码</th><th>定位</th></tr>
+          <tr><td>安集科技</td><td>688019</td><td>国内CMP抛光液龙头，向上游延伸研磨粒子</td></tr>
+          <tr><td>国瓷材料</td><td>300285</td><td>CeO₂粉体供抛光液厂商</td></tr>
+          <tr><td>Cabot Microelectronics</td><td>CCMP</td><td>全球CMP抛光液龙头（市占率~35%）</td></tr>
+        </table>
+        <p style="font-size:0.83rem;color:var(--text-light);margin:6px 0">下游：台积电、三星（晶圆厂）；Intel、SK Hynix（存储）</p>
+        <div class="advice-box">★★★ 强烈推荐 — 国产替代率&lt;10%，SCHS粒径精度优势天然匹配CMP应用诉求。安集科技+国瓷材料双标的。<br><strong style="color:#ffcc80">⚠ 认证风险：进入台积电供应链需5年以上+，认证失败率高（历史上约60%初次认证失败）；国内晶圆厂（中芯国际、长鑫存储）认证周期约3年，相对可行。</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.4 TiO2 -->
+  <div class="product-block">
+    <div class="product-header">
+      <h3>4.4 纳米二氧化钛（TiO₂）</h3>
+      <span class="rating r1">★ 观察</span>
+    </div>
+    <div class="product-body">
+      <div class="gen-section leg">
+        <h4>【落后型】普通钛白粉（&gt;200nm）</h4>
+        <div class="info-row"><span class="label">市场规模</span><span class="value">国内~200亿元，严重产能过剩</span></div>
+        <div class="advice-box warn">✗ 回避（纳米材料投资视角下无价值）</div>
+      </div>
+      <div class="gen-section main">
+        <h4>【主流型】光催化/化妆品级纳米TiO₂（10~50nm）</h4>
+        <div class="info-row">
+          <span class="label">光催化市场</span><span class="value">国内~10~20亿元</span>
+          <span class="label">化妆品防晒市场</span><span class="value">全球~50~80亿元（欧盟监管风险）</span>
+          <span class="label">主要制造方</span><span class="value">阿石创（688148）、龙佰集团、Evonik（德国）</span>
+        </div>
+        <div class="advice-box watch">★ 观察 — 欧盟对&lt;100nm产品限制中，化妆品端监管不确定性大</div>
+      </div>
+      <div class="gen-section adv">
+        <h4>【先进型】电池/半导体级超细纳米TiO₂（&lt;10nm）</h4>
+        <div class="info-row"><span class="label">应用</span><span class="value">钙钛矿太阳能电池电子传输层，市场规模~2~5亿元</span></div>
+        <div class="advice-box watch">★ 观察 — 等待钙钛矿产业化节奏确认后再布局</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.5 ZnO -->
+  <div class="product-block">
+    <div class="product-header">
+      <h3>4.5 纳米氧化锌（ZnO）</h3>
+      <span class="rating r2">★★ 推荐（先进型压电应用）</span>
+    </div>
+    <div class="product-body">
+      <div class="gen-section leg">
+        <h4>【落后型】普通ZnO（&gt;1μm，橡胶硫化）</h4>
+        <div class="advice-box warn">✗ 回避</div>
+      </div>
+      <div class="gen-section main">
+        <h4>【主流型】功能级纳米ZnO（30~200nm，压敏电阻/气敏/化妆品）</h4>
+        <div class="info-row">
+          <span class="label">市场规模</span><span class="value">~15~25亿元（国内）</span>
+          <span class="label">主要制造方</span><span class="value">阿石创（688148）、纳微科技（688690）</span>
+        </div>
+        <div class="advice-box watch">★ 观察 — 市场规模有天花板</div>
+      </div>
+      <div class="gen-section adv">
+        <h4>【先进型】超细纳米ZnO（&lt;30nm，柔性压电/可穿戴）</h4>
+        <div class="info-row">
+          <span class="label">工艺</span><span class="value">SCHS精密合成，形貌可控（纳米棒/纳米片/零维颗粒）</span>
+          <span class="label">市场规模</span><span class="value">~2~5亿元，随可穿戴电子快速成长</span>
+        </div>
+        <div class="advice-box caution">★★ 推荐 — ZnO纳米棒压电特性是SCHS形貌调控独特优势的最佳展示场景</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     第5章 认证风险专栏（新增）
+════════════════════════════════════════════ -->
+<div class="section" id="cert-risk">
+  <div class="section-title">5. 认证风险专项评估 ⚠</div>
+
+  <div class="card" style="border-left:5px solid #c0392b">
+    <p style="font-size:0.9rem;color:#7b1f1f;font-weight:600;margin-bottom:12px">
+      认证壁垒是纳米粉体领域最容易被低估的系统性风险。技术突破≠商业化成功，从实验室样品到稳定供货，认证周期往往超出投资者预期，且失败后的沉没成本极高。
+    </p>
+  </div>
+
+  <div class="sub-title">5.1 认证流程全景：以MLCC头部客户为例</div>
+  <div class="card">
+    <div class="cert-timeline">
+      <div class="cert-step">
+        <h5>① 初步送样 — 理化指标测试</h5>
+        <p>客户收到粉体样品，测试粒径分布（D50/D90/D10）、纯度、晶型、比表面积等基础指标</p>
+        <div class="duration">约1~3个月</div>
+      </div>
+      <div class="cert-step">
+        <h5>② 流延/成型工艺适配测试</h5>
+        <p>将粉体在客户生产线上进行流延成型，验证分散性、浆料稳定性、生坯密度等工艺参数</p>
+        <div class="duration">约3~6个月</div>
+      </div>
+      <div class="cert-step">
+        <h5>③ 烧结性能验证</h5>
+        <p>高温烧结后测试致密度、介电常数（BaTiO₃）、电容量、损耗角正切等电学性能</p>
+        <div class="duration">约3~6个月</div>
+      </div>
+      <div class="cert-step">
+        <h5>④ 可靠性测试（长期寿命）</h5>
+        <p>在高温高湿（85℃/85%RH）、温度循环、高压加速寿命（HALT）等条件下测试1000~2000小时</p>
+        <div class="duration">约6~12个月</div>
+      </div>
+      <div class="cert-step">
+        <h5>⑤ 批次一致性验证</h5>
+        <p>连续供货3~6批，验证批次间粒径、晶型、电学性能的一致性（这是最常见的失败节点）</p>
+        <div class="duration">约6~12个月</div>
+      </div>
+      <div class="cert-step">
+        <h5>⑥ 小批量导入生产</h5>
+        <p>供应商进入合格供应商名单（AVL），开始小批量供货，生产线适配优化</p>
+        <div class="duration">约3~6个月</div>
+      </div>
+      <div class="cert-step">
+        <h5>⑦ 规模化量产认证（车规额外需求）</h5>
+        <p>车规MLCC（AEC-Q200标准）需额外进行振动、冲击、盐雾等测试，总周期显著延长</p>
+        <div class="duration">额外增加12~24个月</div>
+      </div>
+    </div>
+    <div style="background:#fef3cd;border-radius:6px;padding:12px;font-size:0.85rem;color:#7b4f00;margin-top:8px">
+      <strong>总结：</strong>村田/三星电机级别的MLCC客户完整认证周期 <strong>3~5年</strong>（消费电子），车规级 <strong>5~7年</strong>。国内风华/三环级别约 <strong>2~3年</strong>，相对可行。
+    </div>
+  </div>
+
+  <div class="sub-title">5.2 各品类认证风险矩阵</div>
+  <div class="risk-grid">
+    <div class="risk-card critical">
+      <div class="risk-tag c">极高风险</div>
+      <h4>纳米BaTiO₃ → 村田/三星（MLCC先进型）</h4>
+      <p>认证周期：<strong>5~7年（车规）</strong><br>
+      初次认证失败率：<strong>约65%</strong><br>
+      主要失败原因：批次间PDI波动超标、高温可靠性测试中介电性能衰减、烧结收缩率不一致。<br>
+      <strong>投资含义：</strong>即便技术突破，商业化落地仍需5年以上；切勿将研发成功等同于业绩兑现。</p>
+    </div>
+    <div class="risk-card critical">
+      <div class="risk-tag c">极高风险</div>
+      <h4>纳米CeO₂ → 台积电/英特尔（CMP先进型）</h4>
+      <p>认证周期：<strong>5~8年</strong><br>
+      初次认证失败率：<strong>约60%</strong><br>
+      主要失败原因：颗粒尾部大颗粒（&gt;100nm）导致晶圆划痕，影响良率，客户零容忍。<br>
+      <strong>投资含义：</strong>建议优先布局中芯国际/长鑫存储认证路线（国内，周期~3年），再逐步向台积电延伸。</p>
+    </div>
+    <div class="risk-card high">
+      <div class="risk-tag h">高风险</div>
+      <h4>纳米铜粉 → MLCC内电极（先进型）</h4>
+      <p>认证周期：<strong>3~5年</strong><br>
+      初次认证失败率：<strong>约50%</strong><br>
+      主要失败原因：高温烧结过程铜氧化导致电阻率升高、批次间氧含量波动、与BaTiO₃介质层界面结合不稳定。<br>
+      <strong>投资含义：</strong>SiC封装烧结铜膏认证相对快（2~3年），可作为跳板先放量，再向MLCC延伸。</p>
+    </div>
+    <div class="risk-card high">
+      <div class="risk-tag h">高风险</div>
+      <h4>纳米镍粉 → 村田（博迁新材扩产线）</h4>
+      <p>认证周期：<strong>扩产再验证约6~12个月</strong><br>
+      风险点：已认证的原有产线产品批次可直接供货，但新增产能（新设备/新工厂）须重新送样验证，可能造成供货中断。<br>
+      <strong>投资含义：</strong>博迁扩产期间应持续跟踪新产线认证进度，警惕产能扩张但供货无法同步放量的错配风险。</p>
+    </div>
+    <div class="risk-card high">
+      <div class="risk-tag h">高风险</div>
+      <h4>纳米ZrO₂ → SOFC电解质系统</h4>
+      <p>认证周期：<strong>5~8年（系统级认证）</strong><br>
+      主要失败原因：SOFC系统集成认证涉及电堆/电池组/控制系统多层级，粉体性能只是其中一环，整体不确定性极高。<br>
+      <strong>投资含义：</strong>口腔义齿路线认证周期短（&lt;12个月），建议先走义齿路线建立商业基础，再布局SOFC。</p>
+    </div>
+    <div class="risk-card medium">
+      <div class="risk-tag m">中等风险</div>
+      <h4>纳米银粉 → HJT/BC光伏电池</h4>
+      <p>认证周期：<strong>12~18个月</strong><br>
+      初次认证失败率：<strong>约25%</strong><br>
+      主要失败原因：低温固化后导电性不达标、与异质结界面接触电阻过高、长期衰减（PID效应）测试不过关。<br>
+      <strong>投资含义：</strong>光伏认证相对门槛低，但需按电池型号逐一认证（HJT/BC为不同配方），各家电池商认证互不通用。</p>
+    </div>
+    <div class="risk-card medium">
+      <div class="risk-tag m">中等风险</div>
+      <h4>纳米铜浆 → 光伏（铜替银）</h4>
+      <p>认证周期：<strong>18~24个月</strong><br>
+      核心风险：铜氧化问题的长期可靠性尚未被大规模、长时间验证；光伏组件25年寿命要求与纳米铜浆的实际老化数据之间存在显著信息差。<br>
+      <strong>投资含义：</strong>2025~2026年认证窗口，建议等待至少2家一线组件厂的规模量产验证数据出炉后再加大仓位。</p>
+    </div>
+    <div class="risk-card medium">
+      <div class="risk-tag m">中等风险</div>
+      <h4>BaTiO₃主流型 → 国内MLCC（0201规格）</h4>
+      <p>认证周期：<strong>12~24个月</strong><br>
+      失败率：<strong>约20%</strong>（国内客户相对宽松）<br>
+      国瓷材料已完成三星电机认证，风华/国巨认证已完成或进行中，该段风险已大幅释放。<br>
+      <strong>投资含义：</strong>主流型认证风险已知且大部分释放，先进型（&lt;60nm）认证风险是未来核心变量。</p>
+    </div>
+  </div>
+
+  <div class="sub-title">5.3 认证失败后的资本损失评估</div>
+  <div class="card">
+    <table>
+      <tr><th>场景</th><th>沉没成本来源</th><th>典型损失估算</th><th>恢复可能性</th></tr>
+      <tr><td>初次送样失败（理化指标不达标）</td><td>研发成本、样品制备成本</td><td>500万~2000万元</td><td>高，重新优化工艺后可再送</td></tr>
+      <tr><td>可靠性测试失败（投入1~2年后）</td><td>研发人员薪资、设备折旧、客户验证费用</td><td>2000万~5000万元</td><td>中，需找到失效根因并彻底改进</td></tr>
+      <tr><td>批次一致性认证失败（量产前夕）</td><td>上述全部成本+产线改造成本</td><td>5000万~2亿元</td><td>低，通常意味着工艺路线存在系统性缺陷</td></tr>
+      <tr><td>上市公司：认证进度延误公告</td><td>股价跌幅、再融资困难</td><td>市值损失10~30%</td><td>取决于替代路线和现金流状况</td></tr>
+      <tr><td>车规MLCC认证失败</td><td>上述全部+车厂切换违约赔偿</td><td>数亿元级别</td><td>极低，车厂切换成本极高</td></tr>
+    </table>
+  </div>
+
+  <div class="sub-title">5.4 投资者应对认证风险的策略建议</div>
+  <div class="risk-grid">
+    <div class="risk-card" style="border-color:#1a3a5c;background:#f0f4ff">
+      <h4 style="color:#1a3a5c">① 优先选择"已过认证"的标的</h4>
+      <p>博迁新材（村田镍粉认证已完成）、国瓷材料（三星电机80nm BaTiO₃认证已完成）的主流型产品认证风险已大幅释放，先进型产品仍处认证早期。</p>
+    </div>
+    <div class="risk-card" style="border-color:#1a3a5c;background:#f0f4ff">
+      <h4 style="color:#1a3a5c">② 关注认证里程碑而非技术突破公告</h4>
+      <p>"实验室制备成功"≠商业价值。真正值得加仓的信号：签订量产供货协议、进入客户AVL名单、连续3批次交货无异议。对于"正在认证中"的描述保持克制。</p>
+    </div>
+    <div class="risk-card" style="border-color:#1a3a5c;background:#f0f4ff">
+      <h4 style="color:#1a3a5c">③ 用"认证周期"倒推投资节奏</h4>
+      <p>若某企业2026年开始向村田送样（先进型BaTiO₃），最早2029~2031年才可能放量。在此之前，配置仓位应以"播种"而非"收获"姿态处理，不宜高溢价。</p>
+    </div>
+    <div class="risk-card" style="border-color:#1a3a5c;background:#f0f4ff">
+      <h4 style="color:#1a3a5c">④ 分散认证路线风险</h4>
+      <p>优先支持同时走多条认证路线的企业：如既向国内风华认证（快，2年），又向三星认证（慢，5年）。单一认证路线失败概率不变，多条并行可降低整体资本损失预期。</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     第6章 横向比较矩阵
+════════════════════════════════════════════ -->
+<div class="section" id="matrix">
+  <div class="section-title">6. 横向比较矩阵</div>
+  <div class="card" style="padding:0;overflow:hidden">
+    <table>
+      <tr>
+        <th>产物</th><th>代际</th><th>全球市场规模(E)</th><th>国产替代率</th>
+        <th>认证周期</th><th>SCHS优势</th><th>A股核心标的</th><th>综合评级</th>
+      </tr>
+      <tr>
+        <td>纳米铜（&lt;100nm）</td>
+        <td><span class="gen adv">先进型</span></td>
+        <td>30~50亿元</td><td>&lt;5%</td>
+        <td style="color:#c0392b;font-weight:600">3~5年（MLCC）<br>2~3年（SiC）</td>
+        <td>粒径均一，氧含量控制优</td>
+        <td>博迁新材 605376</td>
+        <td><span class="matrix-badge mb-r3">★★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米银（50~150nm，HJT）</td>
+        <td><span class="gen adv">先进型</span></td>
+        <td>80~120亿元</td><td>&lt;30%</td>
+        <td style="color:#e67e22;font-weight:600">12~18个月</td>
+        <td>形貌球形度可控</td>
+        <td>苏州固锝 002079<br>帝科股份 300842</td>
+        <td><span class="matrix-badge mb-r3">★★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米镍（&lt;100nm）</td>
+        <td><span class="gen adv">先进型</span></td>
+        <td>10~20亿元</td><td>&lt;10%</td>
+        <td style="color:#c0392b;font-weight:600">3~5年</td>
+        <td>批次稳定性优</td>
+        <td>博迁新材 605376</td>
+        <td><span class="matrix-badge mb-r3">★★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米BaTiO₃（&lt;60nm）</td>
+        <td><span class="gen adv">先进型</span></td>
+        <td>15~25亿元</td><td>&lt;5%</td>
+        <td style="color:#c0392b;font-weight:600">5~7年（车规）<br>2~3年（国内）</td>
+        <td>四方相晶型保持最佳</td>
+        <td>国瓷材料 300285</td>
+        <td><span class="matrix-badge mb-r3">★★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米CeO₂（&lt;20nm，CMP级）</td>
+        <td><span class="gen adv">先进型</span></td>
+        <td>15~25亿元</td><td>&lt;10%</td>
+        <td style="color:#c0392b;font-weight:600">5~8年（台积电）<br>~3年（国内晶圆厂）</td>
+        <td>粒径分布精准可控</td>
+        <td>安集科技 688019<br>国瓷材料 300285</td>
+        <td><span class="matrix-badge mb-r3">★★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米银（TOPCon主流）</td>
+        <td><span class="gen main">主流型</span></td>
+        <td>100~150亿元</td><td>50%+</td>
+        <td style="color:#2d7d46;font-weight:600">6~12个月</td>
+        <td>辅助强化</td>
+        <td>帝科股份 300842<br>聚和材料 688503</td>
+        <td><span class="matrix-badge mb-r2">★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米BaTiO₃（70~90nm）</td>
+        <td><span class="gen main">主流型</span></td>
+        <td>40~60亿元</td><td>30%+</td>
+        <td style="color:#2d7d46;font-weight:600">12~24个月</td>
+        <td>已产业化</td>
+        <td>国瓷材料 300285</td>
+        <td><span class="matrix-badge mb-r2">★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米ZrO₂（口腔义齿）</td>
+        <td><span class="gen main">主流型</span></td>
+        <td>50~80亿元</td><td>40%+</td>
+        <td style="color:#2d7d46;font-weight:600">&lt;12个月</td>
+        <td>性能提升显著</td>
+        <td>国瓷材料 300285</td>
+        <td><span class="matrix-badge mb-r2">★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米铜（200~800nm，光伏）</td>
+        <td><span class="gen main">主流型</span></td>
+        <td>10~20亿元（放量中）</td><td>30%+</td>
+        <td style="color:#e67e22;font-weight:600">18~24个月</td>
+        <td>成本可控</td>
+        <td>苏州固锝 002079</td>
+        <td><span class="matrix-badge mb-r2">★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米ZnO（压电柔性）</td>
+        <td><span class="gen adv">先进型</span></td>
+        <td>2~5亿元</td><td>&lt;20%</td>
+        <td style="color:#e67e22;font-weight:600">~12个月</td>
+        <td>形貌调控独特</td>
+        <td>阿石创 688148</td>
+        <td><span class="matrix-badge mb-r2">★★</span></td>
+      </tr>
+      <tr>
+        <td>纳米TiO₂（光催化）</td>
+        <td><span class="gen main">主流型</span></td>
+        <td>10~20亿元</td><td>50%+</td>
+        <td style="color:#2d7d46;font-weight:600">&lt;6个月</td>
+        <td>晶型调控</td>
+        <td>阿石创 688148</td>
+        <td><span class="matrix-badge mb-r1">★</span></td>
+      </tr>
+      <tr>
+        <td>固相法大粒径粉体</td>
+        <td><span class="gen leg">落后型</span></td>
+        <td>各品类合计可观</td><td>&gt;80%</td>
+        <td>—</td>
+        <td>无优势</td>
+        <td>—</td>
+        <td><span class="matrix-badge mb-r0">✗ 回避</span></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     第7章 SCHS战略价值评估
+════════════════════════════════════════════ -->
+<div class="section" id="schs">
+  <div class="section-title">7. 超临界水热合成（SCHS）技术战略价值评估</div>
+
+  <div class="card">
+    <div class="sub-title" style="margin-top:0">7.1 技术优势</div>
+    <table>
+      <tr><th>维度</th><th>SCHS优势</th><th>对应最高价值场景</th></tr>
+      <tr><td><strong>粒径均一性</strong></td><td>D90/D10&lt;2，远优于传统水热和固相法</td><td>MLCC超细BaTiO₃（01005）、CMP氧化铈</td></tr>
+      <tr><td><strong>粒径精准可控</strong></td><td>通过T/P调节在10~100nm宽范围连续调控</td><td>多品类"一机多用"</td></tr>
+      <tr><td><strong>晶型完整性</strong></td><td>高压超临界环境有利于保持BaTiO₃四方相</td><td>高端MLCC钛酸钡</td></tr>
+      <tr><td><strong>反应速率极快</strong></td><td>数秒即完成晶核生成，批次间一致性高</td><td>工业化连续生产</td></tr>
+      <tr><td><strong>形貌可控</strong></td><td>调节前驱体浓度/表面活性剂控制一维/零维形貌</td><td>ZnO纳米棒（压电）、TiO₂纳米片（光催化）</td></tr>
+      <tr><td><strong>绿色工艺</strong></td><td>以水为溶剂，无有机溶剂排放</td><td>ESG合规优势</td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="sub-title" style="margin-top:0">7.2 技术劣势与风险</div>
+    <table>
+      <tr><th>风险</th><th>具体内容</th><th>缓解措施</th></tr>
+      <tr><td>设备投资高</td><td>超临界反应器（&gt;22MPa）单条线数千万元</td><td>分阶段建设，先中试再量产</td></tr>
+      <tr><td>连续化工程难度大</td><td>堵管、结垢、换热器腐蚀是产业化核心难点</td><td>参考UCL连续化示范线经验，引入流场仿真优化</td></tr>
+      <tr><td>PVD竞争</td><td>纳米镍/铜领域，顶级PVD在形貌控制上不输SCHS</td><td>在粒径均一性需求极高场景（CMP/先进MLCC）强调差异化</td></tr>
+      <tr><td><strong>认证壁垒（新增重点）</strong></td><td>粉体性能优异≠客户认证通过；认证周期3~8年远超预期</td><td>并行认证多条路线，优先国内客户快速建立商业记录</td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="sub-title" style="margin-top:0">7.3 SCHS落地优先级（综合技术-市场-认证风险）</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:12px">
+      <div style="background:#e8f0fe;border-radius:8px;padding:16px;border-left:4px solid #1a3a5c">
+        <div style="font-size:0.8rem;font-weight:700;color:#1a3a5c;margin-bottom:6px">第一梯队 — 最优先</div>
+        <p style="font-size:0.87rem"><strong>① 纳米BaTiO₃（&lt;60nm）</strong><br>MLCC先进规格，日韩垄断最脆弱处，国内本土客户认证路线可行</p>
+        <p style="font-size:0.87rem;margin-top:8px"><strong>② 纳米CeO₂（CMP级）</strong><br>半导体耗材，粒径精度与SCHS天然匹配，优先攻国内晶圆厂</p>
+      </div>
+      <div style="background:#e6f4ea;border-radius:8px;padding:16px;border-left:4px solid #2d7d46">
+        <div style="font-size:0.8rem;font-weight:700;color:#2d7d46;margin-bottom:6px">第二梯队 — 次优先</div>
+        <p style="font-size:0.87rem"><strong>③ 纳米铜粉（&lt;50nm）</strong><br>SiC封装烧结铜膏认证周期短（2~3年），先放量再攻MLCC</p>
+        <p style="font-size:0.87rem;margin-top:8px"><strong>④ 纳米ZrO₂（SOFC级）</strong><br>氢能长期趋势，先走义齿路线建立商业基础</p>
+      </div>
+      <div style="background:#fef9f0;border-radius:8px;padding:16px;border-left:4px solid #c9a227">
+        <div style="font-size:0.8rem;font-weight:700;color:#7b4f00;margin-bottom:6px">第三梯队 — 可关注</div>
+        <p style="font-size:0.87rem"><strong>⑤ 纳米ZnO（压电形貌控制）</strong><br>可穿戴电子成长赛道，认证门槛相对低</p>
+        <p style="font-size:0.87rem;margin-top:8px"><strong>⑥ 纳米TiO₂（钙钛矿电池用）</strong><br>等待产业化节奏确认，勿超前布局</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     第8章 核心A股标的
+════════════════════════════════════════════ -->
+<div class="section" id="stocks">
+  <div class="section-title">8. 核心A股标的汇总</div>
+  <div class="stock-grid">
+    <div class="stock-card">
+      <div class="code">300285 · 创业板</div>
+      <div class="name">国瓷材料</div>
+      <div class="stars">★★★ SCHS相关度极高</div>
+      <div class="logic">BaTiO₃+CeO₂+ZrO₂三品类领先，正向60nm以下BaTiO₃突破。MLCC景气底部反转，是A股最纯正的SCHS纳米粉体标的。</div>
+      <div class="risk-note">⚠ 风险：先进型BaTiO₃认证周期2~3年（国内），车规5~7年；估值不便宜，需等待业绩拐点</div>
+    </div>
+    <div class="stock-card">
+      <div class="code">605376 · 上交所</div>
+      <div class="name">博迁新材</div>
+      <div class="stars">★★★ SCHS相关度极高</div>
+      <div class="logic">纳米Ni/Cu平台型，国内唯一已完成村田认证的MLCC镍粉商。产能释放期，MLCC景气回升业绩弹性大。</div>
+      <div class="risk-note">⚠ 风险：单一品类集中；新产线扩产需重新送样验证（6~12个月）；先进型铜粉认证尚早</div>
+    </div>
+    <div class="stock-card">
+      <div class="code">002079 · 深交所</div>
+      <div class="name">苏州固锝</div>
+      <div class="stars">★★ SCHS相关度较高</div>
+      <div class="logic">纳米银粉定增项目直接切入HJT银浆，光伏铜浆双向布局。光伏行业降本刚需驱动。</div>
+      <div class="risk-note">⚠ 风险：光伏技术路线切换风险（HJT→BC）；铜浆认证周期18~24个月，能否按时通过是核心变量</div>
+    </div>
+    <div class="stock-card">
+      <div class="code">300842 · 创业板</div>
+      <div class="name">帝科股份</div>
+      <div class="stars">★★ SCHS相关度较高</div>
+      <div class="logic">收购浙江索特实现浆料+粉体垂直整合，HJT银浆高增长，TOPCon主流期持续受益。</div>
+      <div class="risk-note">⚠ 风险：浆料配方认证须逐型号推进；TOPCon被替代时间窗口约2~3年；研发成本高企</div>
+    </div>
+    <div class="stock-card">
+      <div class="code">688019 · 科创板</div>
+      <div class="name">安集科技</div>
+      <div class="stars">★★ SCHS相关度较高</div>
+      <div class="logic">CMP抛光液国产替代最纯正标的，上游氧化铈粉体联动受益。国内晶圆厂认证路线渐入佳境。</div>
+      <div class="risk-note">⚠ 风险：台积电认证极为漫长（5年以上）；全球CMP头部客户验证进度是核心观察指标</div>
+    </div>
+    <div class="stock-card">
+      <div class="code">688148 · 科创板</div>
+      <div class="name">阿石创</div>
+      <div class="stars">★ SCHS相关度一般</div>
+      <div class="logic">多品类纳米金属氧化物平台（ZnO/TiO₂/CeO₂），细分领域深耕，认证门槛相对低。</div>
+      <div class="risk-note">⚠ 风险：规模偏小，品类分散，单品市场天花板有限</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>本报告基于公开资料及行业数据综合整理，市场规模估算涉及一定主观判断，不构成投资建议，仅供研究参考。</p>
+  <p style="margin-top:8px">编制日期：2026年5月 · 研究视角：超临界水热合成（SCHS）技术产业化</p>
+</footer>
+
+<script>
+// ── 图1：市场规模对比（先进型） ──
+new Chart(document.getElementById('chartMarket'), {
+  type: 'bar',
+  data: {
+    labels: ['纳米银\n(HJT/BC)', '纳米铜\n(<100nm)', 'BaTiO₃\n(<60nm)', 'CeO₂\n(CMP级)', 'ZrO₂\n(牙科)', '纳米镍\n(<100nm)', 'ZnO\n(压电)'],
+    datasets: [{
+      label: '市场规模下限（亿元）',
+      data: [80, 30, 15, 15, 50, 10, 2],
+      backgroundColor: 'rgba(26,58,92,0.7)',
+    },{
+      label: '市场规模上限（亿元）',
+      data: [120, 50, 25, 25, 80, 20, 5],
+      backgroundColor: 'rgba(232,96,44,0.7)',
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+    scales: {
+      x: { ticks: { font: { size: 10 } } },
+      y: { beginAtZero: true, title: { display: true, text: '亿元（全球）', font: { size: 11 } } }
+    }
+  }
+});
+
+// ── 图2：国产替代率 ──
+new Chart(document.getElementById('chartDomestic'), {
+  type: 'bar',
+  data: {
+    labels: ['纳米铜\n(<100nm)', 'BaTiO₃\n(<60nm)', 'CeO₂\n(CMP)', '纳米镍\n(<100nm)', '纳米银\n(HJT)', 'ZnO\n(压电)', 'BaTiO₃\n(主流)', 'ZrO₂\n(牙科)'],
+    datasets: [{
+      label: '当前国产替代率（%）',
+      data: [5, 5, 10, 10, 30, 20, 30, 40],
+      backgroundColor: (ctx) => {
+        const v = ctx.dataset.data[ctx.dataIndex];
+        return v < 15 ? 'rgba(192,57,43,0.8)' : v < 35 ? 'rgba(230,126,34,0.8)' : 'rgba(45,125,70,0.8)';
+      }
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { beginAtZero: true, max: 100, title: { display: true, text: '国产替代率 %', font: { size: 11 } } }
+    }
+  }
+});
+
+// ── 图3：MLCC规格-粒径-价格 ──
+const mlccCtx = document.getElementById('chartMlcc');
+new Chart(mlccCtx, {
+  type: 'scatter',
+  data: {
+    datasets: [{
+      label: '落后型',
+      data: [{ x: 400, y: 11.5 }, { x: 125, y: 17.5 }],
+      backgroundColor: 'rgba(201,162,39,0.8)', pointRadius: 10
+    },{
+      label: '主流型',
+      data: [{ x: 80, y: 28.5 }],
+      backgroundColor: 'rgba(45,125,70,0.8)', pointRadius: 12
+    },{
+      label: '先进型',
+      data: [{ x: 50, y: 40 }],
+      backgroundColor: 'rgba(26,58,92,0.8)', pointRadius: 14
+    },{
+      label: '前沿型（村田自研）',
+      data: [{ x: 28, y: 55 }],
+      backgroundColor: 'rgba(192,57,43,0.8)', pointRadius: 10
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } },
+      tooltip: { callbacks: { label: (c) => `粒径${c.raw.x}nm / 价格${c.raw.y}万元/吨` } }
+    },
+    scales: {
+      x: { reverse: true, title: { display: true, text: 'BaTiO₃粒径 D50 (nm) →更细', font: { size: 11 } } },
+      y: { title: { display: true, text: '粉体价格（万元/吨）', font: { size: 11 } } }
+    }
+  }
+});
+
+// ── 图4：认证周期 vs 失败概率（气泡） ──
+new Chart(document.getElementById('chartCert'), {
+  type: 'bubble',
+  data: {
+    datasets: [
+      { label: 'BaTiO₃→村田(车规)', data: [{ x: 6, y: 65, r: 18 }], backgroundColor: 'rgba(192,57,43,0.7)' },
+      { label: 'CeO₂→台积电(CMP)', data: [{ x: 6.5, y: 60, r: 18 }], backgroundColor: 'rgba(192,57,43,0.6)' },
+      { label: 'Cu→MLCC内电极', data: [{ x: 4, y: 50, r: 15 }], backgroundColor: 'rgba(230,126,34,0.7)' },
+      { label: 'Ni→村田(扩产线)', data: [{ x: 0.9, y: 30, r: 12 }], backgroundColor: 'rgba(230,126,34,0.6)' },
+      { label: 'ZrO₂→SOFC系统', data: [{ x: 6.5, y: 55, r: 10 }], backgroundColor: 'rgba(192,57,43,0.5)' },
+      { label: 'Ag→HJT光伏', data: [{ x: 1.5, y: 25, r: 20 }], backgroundColor: 'rgba(45,125,70,0.7)' },
+      { label: 'Cu浆→光伏替银', data: [{ x: 2, y: 35, r: 14 }], backgroundColor: 'rgba(230,126,34,0.5)' },
+      { label: 'BaTiO₃→国内MLCC', data: [{ x: 1.5, y: 20, r: 16 }], backgroundColor: 'rgba(45,125,70,0.6)' },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 9 }, boxWidth: 10 } },
+      tooltip: { callbacks: { label: (c) => `${c.dataset.label}: 周期${c.raw.x}年 / 失败率${c.raw.y}%` } }
+    },
+    scales: {
+      x: { min: 0, max: 9, title: { display: true, text: '认证周期（年）', font: { size: 11 } } },
+      y: { min: 0, max: 80, title: { display: true, text: '初次认证失败率（%）', font: { size: 11 } } }
+    }
+  }
+});
+
+// ── 图5：综合能力雷达 ──
+new Chart(document.getElementById('chartRadar'), {
+  type: 'radar',
+  data: {
+    labels: ['市场规模', '国产替代空间', 'SCHS相关度', '认证确定性', '当前业绩兑现', '估值吸引力'],
+    datasets: [
+      { label: '国瓷材料', data: [80, 90, 95, 65, 70, 60], borderColor: '#1a3a5c', backgroundColor: 'rgba(26,58,92,0.15)', pointBackgroundColor: '#1a3a5c' },
+      { label: '博迁新材', data: [60, 85, 80, 75, 75, 70], borderColor: '#e8602c', backgroundColor: 'rgba(232,96,44,0.15)', pointBackgroundColor: '#e8602c' },
+      { label: '安集科技', data: [70, 85, 70, 55, 65, 65], borderColor: '#2d7d46', backgroundColor: 'rgba(45,125,70,0.15)', pointBackgroundColor: '#2d7d46' },
+      { label: '苏州固锝', data: [75, 70, 60, 70, 70, 75], borderColor: '#c9a227', backgroundColor: 'rgba(201,162,39,0.15)', pointBackgroundColor: '#c9a227' }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } } },
+    scales: { r: { beginAtZero: true, max: 100, ticks: { font: { size: 9 } }, pointLabels: { font: { size: 10 } } } }
+  }
+});
+
+// ── 图6：SCHS落地优先级 ──
+new Chart(document.getElementById('chartPriority'), {
+  type: 'bar',
+  data: {
+    labels: ['BaTiO₃\n(<60nm)', 'CeO₂\n(CMP)', 'Cu粉\n(SiC)', 'ZrO₂\n(SOFC)', 'ZnO\n(压电)', 'TiO₂\n(钙钛矿)'],
+    datasets: [{
+      label: '市场潜力得分',
+      data: [90, 88, 82, 55, 60, 40],
+      backgroundColor: 'rgba(26,58,92,0.75)',
+    },{
+      label: '认证可行性得分（越高越易落地）',
+      data: [65, 60, 75, 30, 80, 45],
+      backgroundColor: 'rgba(45,125,70,0.75)',
+    },{
+      label: 'SCHS工艺契合度',
+      data: [95, 92, 80, 85, 88, 78],
+      backgroundColor: 'rgba(232,96,44,0.75)',
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: true,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } } },
+    scales: {
+      x: { ticks: { font: { size: 10 } } },
+      y: { beginAtZero: true, max: 100, title: { display: true, text: '综合评分（0~100）', font: { size: 11 } } }
+    }
+  }
+});
+</script>
+</body>
+</html>
