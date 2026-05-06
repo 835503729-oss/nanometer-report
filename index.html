@@ -6,17 +6,18 @@
 <title>西安交大亚临界水热技术 · 投资分析报告</title>
 <style>
   :root {
-    --bg: #0d1117;
-    --bg2: #161b22;
-    --bg3: #21262d;
-    --accent: #58a6ff;
-    --accent2: #3fb950;
-    --accent3: #f78166;
-    --accent4: #d2a8ff;
-    --text: #e6edf3;
-    --text2: #8b949e;
-    --border: #30363d;
-    --gold: #e3b341;
+    --bg:      #0b1724;
+    --bg2:     #112030;
+    --bg3:     #1a2e42;
+    --accent:  #4a7eb8;
+    --accent2: #4a8a5c;
+    --accent3: #b54a3a;
+    --accent4: #7868b0;
+    --text:    #e6e2d6;
+    --text2:   #7490a8;
+    --border:  #1e3450;
+    --gold:    #c9a84c;
+    --gold2:   #e8c96a;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,70 +25,60 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
+    font-size: 15px;
   }
 
   /* ─── Slide Container ─── */
-  #deck {
-    width: 100%; height: 100%;
-    position: relative;
-  }
+  #deck { width: 100%; height: 100%; position: relative; }
 
   .slide {
     position: absolute;
     inset: 0;
     display: flex;
     flex-direction: column;
-    padding: 48px 64px 40px;
+    padding: 44px 68px 48px;
     opacity: 0;
-    transform: translateX(60px);
-    transition: opacity .4s ease, transform .4s ease;
+    transform: translateX(50px);
+    transition: opacity .38s ease, transform .38s ease;
     pointer-events: none;
     overflow: hidden;
   }
-  .slide.active {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: all;
-  }
-  .slide.exit {
-    opacity: 0;
-    transform: translateX(-60px);
-  }
+  .slide.active  { opacity: 1; transform: translateX(0); pointer-events: all; }
+  .slide.exit    { opacity: 0; transform: translateX(-50px); }
 
-  /* ─── Common Elements ─── */
+  /* ─── Slide label ─── */
   .slide-label {
     font-size: 11px;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--text2);
-    margin-bottom: 8px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 600;
   }
-  h1 {
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--text);
-  }
+
+  /* ─── Headings ─── */
+  h1 { font-size: 46px; font-weight: 700; line-height: 1.15; color: var(--text); }
+
   h2 {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 24px;
-    border-bottom: 2px solid var(--border);
-    padding-bottom: 12px;
+    margin-bottom: 22px;
+    padding-left: 14px;
+    border-left: 3px solid var(--gold);
+    line-height: 1.3;
   }
   h2 .tag {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
-    background: var(--bg3);
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 20px;
-    padding: 2px 12px;
+    background: transparent;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 2px 10px;
     margin-left: 12px;
     vertical-align: middle;
     letter-spacing: 0;
@@ -96,40 +87,35 @@
   .content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
 
   /* ─── Table ─── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13.5px;
-  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
   th {
     background: var(--bg3);
-    color: var(--accent);
+    color: var(--gold);
     font-weight: 600;
     padding: 10px 14px;
     text-align: left;
     border: 1px solid var(--border);
     font-size: 12px;
-    letter-spacing: .5px;
+    letter-spacing: .6px;
+    text-transform: uppercase;
   }
   td {
     padding: 9px 14px;
     border: 1px solid var(--border);
     vertical-align: middle;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--text);
+    font-size: 14px;
   }
-  tr:nth-child(even) td { background: rgba(255,255,255,.025); }
-  td.hi { color: var(--gold); font-weight: 700; }
-  td.green { color: var(--accent2); font-weight: 600; }
-  td.red { color: var(--accent3); }
-  td.blue { color: var(--accent); }
-  td.purple { color: var(--accent4); font-weight: 600; }
+  tr:nth-child(even) td { background: rgba(255,255,255,.022); }
+  td.hi     { color: var(--gold2); font-weight: 700; }
+  td.green  { color: #6ab87a; font-weight: 600; }
+  td.red    { color: #c97060; }
+  td.blue   { color: #6aa0d0; }
+  td.purple { color: #9888cc; font-weight: 600; }
 
   /* ─── Cards ─── */
-  .cards {
-    display: grid;
-    gap: 16px;
-  }
+  .cards { display: grid; gap: 14px; }
   .cards-3 { grid-template-columns: repeat(3, 1fr); }
   .cards-2 { grid-template-columns: repeat(2, 1fr); }
   .cards-4 { grid-template-columns: repeat(4, 1fr); }
@@ -137,8 +123,8 @@
   .card {
     background: var(--bg2);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 4px;
+    padding: 18px 20px;
     position: relative;
     overflow: hidden;
   }
@@ -146,169 +132,159 @@
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 3px;
+    height: 2px;
   }
-  .card.blue::before { background: var(--accent); }
-  .card.green::before { background: var(--accent2); }
-  .card.red::before { background: var(--accent3); }
-  .card.gold::before { background: var(--gold); }
+  .card.blue::before   { background: var(--accent); }
+  .card.green::before  { background: var(--accent2); }
+  .card.red::before    { background: var(--accent3); }
+  .card.gold::before   { background: var(--gold); }
   .card.purple::before { background: var(--accent4); }
 
-  .card-icon { font-size: 24px; margin-bottom: 8px; }
-  .card h3 { font-size: 14px; color: var(--text2); margin-bottom: 6px; font-weight: 500; }
-  .card .val { font-size: 28px; font-weight: 700; line-height: 1.1; }
-  .card .sub { font-size: 12px; color: var(--text2); margin-top: 6px; line-height: 1.5; }
-  .card .desc { font-size: 13px; color: var(--text); line-height: 1.6; margin-top: 8px; }
-  .card.blue .val { color: var(--accent); }
-  .card.green .val { color: var(--accent2); }
-  .card.red .val { color: var(--accent3); }
-  .card.gold .val { color: var(--gold); }
+  .card-icon { font-size: 22px; margin-bottom: 8px; }
+  .card h3   { font-size: 12px; color: var(--text2); margin-bottom: 6px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; }
+  .card .val { font-size: 30px; font-weight: 700; line-height: 1.1; }
+  .card .sub { font-size: 12.5px; color: var(--text2); margin-top: 6px; line-height: 1.55; }
+  .card .desc { font-size: 14px; color: var(--text); line-height: 1.65; margin-top: 8px; }
+  .card.blue .val   { color: var(--accent); }
+  .card.green .val  { color: var(--accent2); }
+  .card.red .val    { color: var(--accent3); }
+  .card.gold .val   { color: var(--gold2); }
   .card.purple .val { color: var(--accent4); }
 
   /* ─── List ─── */
-  .list { display: flex; flex-direction: column; gap: 10px; }
+  .list { display: flex; flex-direction: column; gap: 9px; }
   .list-item {
     display: flex;
     align-items: flex-start;
     gap: 12px;
     background: var(--bg2);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 13.5px;
-    line-height: 1.6;
+    border-radius: 4px;
+    padding: 11px 15px;
+    font-size: 14px;
+    line-height: 1.65;
   }
   .list-item .bullet {
     width: 22px; height: 22px;
-    border-radius: 50%;
+    border-radius: 2px;
     display: flex; align-items: center; justify-content: center;
     font-size: 11px; font-weight: 700;
     flex-shrink: 0; margin-top: 1px;
   }
-  .bull-blue { background: rgba(88,166,255,.15); color: var(--accent); }
-  .bull-green { background: rgba(63,185,80,.15); color: var(--accent2); }
-  .bull-red { background: rgba(247,129,102,.15); color: var(--accent3); }
-  .bull-gold { background: rgba(227,179,65,.15); color: var(--gold); }
+  .bull-blue   { background: rgba(74,126,184,.18); color: var(--accent); }
+  .bull-green  { background: rgba(74,138,92,.18);  color: #6ab87a; }
+  .bull-red    { background: rgba(181,80,58,.18);  color: #c97060; }
+  .bull-gold   { background: rgba(201,168,76,.18); color: var(--gold2); }
 
-  strong { color: var(--gold); }
-  em { color: var(--accent); font-style: normal; }
+  strong { color: var(--gold2); }
+  em     { color: var(--accent); font-style: normal; }
 
   /* ─── Flow Chart ─── */
-  .flow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: nowrap;
-  }
+  .flow { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: nowrap; }
   .flow-box {
     background: var(--bg2);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 12px 16px;
     text-align: center;
-    font-size: 13px;
-    min-width: 100px;
+    font-size: 13.5px;
+    min-width: 110px;
     flex-shrink: 0;
   }
-  .flow-box .step { font-size: 10px; color: var(--text2); margin-bottom: 4px; }
-  .flow-box .name { font-weight: 600; color: var(--accent); }
-  .flow-box .param { font-size: 11px; color: var(--text2); margin-top: 3px; }
-  .flow-arrow {
-    color: var(--border);
-    font-size: 20px;
-    margin: 0 4px;
-    flex-shrink: 0;
-  }
+  .flow-box .step  { font-size: 10px; color: var(--text2); margin-bottom: 4px; letter-spacing: .5px; text-transform: uppercase; }
+  .flow-box .name  { font-weight: 700; color: var(--accent); }
+  .flow-box .param { font-size: 11.5px; color: var(--text2); margin-top: 3px; }
+  .flow-arrow { color: var(--gold); font-size: 18px; margin: 0 6px; flex-shrink: 0; opacity: .7; }
 
   /* ─── Split Layout ─── */
-  .split {
-    display: grid;
-    gap: 20px;
-    flex: 1;
-  }
+  .split   { display: grid; gap: 18px; flex: 1; }
   .split-2 { grid-template-columns: 1fr 1fr; }
   .split-3 { grid-template-columns: 1fr 1fr 1fr; }
-  .split-62 { grid-template-columns: 6fr 4fr; }
+  .split-62{ grid-template-columns: 6fr 4fr; }
 
   .panel {
     background: var(--bg2);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 4px;
+    padding: 18px 20px;
   }
   .panel h3 {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
     color: var(--text2);
-    margin-bottom: 14px;
+    margin-bottom: 13px;
     text-transform: uppercase;
-    letter-spacing: .8px;
+    letter-spacing: 1px;
   }
 
   /* ─── Big Number ─── */
-  .bignum {
-    text-align: center;
-    padding: 20px;
-  }
-  .bignum .n { font-size: 56px; font-weight: 800; line-height: 1; }
-  .bignum .unit { font-size: 18px; color: var(--text2); margin-top: 4px; }
+  .bignum { text-align: center; padding: 18px; }
+  .bignum .n     { font-size: 54px; font-weight: 800; line-height: 1; }
+  .bignum .unit  { font-size: 17px; color: var(--text2); margin-top: 4px; }
   .bignum .label { font-size: 12px; color: var(--text2); margin-top: 8px; letter-spacing: .5px; }
 
-  /* ─── Cover Slide ─── */
+  /* ─── Cover ─── */
   #s-cover {
     justify-content: center;
-    background: radial-gradient(ellipse at 30% 50%, rgba(88,166,255,.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 50%, rgba(63,185,80,.05) 0%, transparent 60%);
+    background:
+      linear-gradient(160deg, rgba(201,168,76,.06) 0%, transparent 50%),
+      linear-gradient(340deg, rgba(74,126,184,.06) 0%, transparent 50%);
   }
-  .cover-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 12px;
-    color: var(--text2);
-    margin-bottom: 24px;
+  .cover-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 20px;
   }
-  .cover-badge span { color: var(--accent2); }
   .cover-title {
-    font-size: 48px;
+    font-size: 46px;
     font-weight: 800;
-    line-height: 1.15;
-    background: linear-gradient(135deg, #e6edf3 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 16px;
+    line-height: 1.18;
+    color: var(--text);
+    margin-bottom: 18px;
   }
+  .cover-title span { color: var(--gold2); }
   .cover-sub {
-    font-size: 18px;
+    font-size: 17px;
     color: var(--text2);
-    margin-bottom: 40px;
+    margin-bottom: 36px;
+    line-height: 1.5;
+  }
+  .cover-rule {
+    width: 60px; height: 2px;
+    background: var(--gold);
+    margin-bottom: 28px;
   }
   .cover-meta {
-    display: flex;
-    gap: 32px;
-    font-size: 13px;
-    color: var(--text2);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
   }
-  .cover-meta span { color: var(--text); }
+  .cover-meta-item {
+    padding: 14px 18px;
+    border-right: 1px solid var(--border);
+  }
+  .cover-meta-item:last-child { border-right: none; }
+  .cover-meta-item .label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text2); margin-bottom: 5px; }
+  .cover-meta-item .value { font-size: 13.5px; color: var(--text); font-weight: 500; }
 
   /* ─── Navigation ─── */
   #nav {
     position: fixed;
-    bottom: 28px;
+    bottom: 26px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     background: var(--bg2);
     border: 1px solid var(--border);
-    border-radius: 40px;
+    border-radius: 4px;
     padding: 8px 20px;
     z-index: 100;
   }
@@ -317,28 +293,24 @@
     border: none;
     color: var(--text);
     cursor: pointer;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 14px;
-    transition: background .2s;
+    padding: 5px 14px;
+    border-radius: 2px;
+    font-size: 13.5px;
+    transition: background .18s;
+    letter-spacing: .3px;
   }
   #nav button:hover { background: var(--bg3); }
   #nav button:disabled { color: var(--border); cursor: default; }
   #nav button:disabled:hover { background: none; }
-  #progress {
-    font-size: 12px;
-    color: var(--text2);
-    min-width: 52px;
-    text-align: center;
-  }
+  #progress { font-size: 12px; color: var(--text2); min-width: 52px; text-align: center; }
 
   /* ─── Progress Bar ─── */
   #bar {
     position: fixed;
     top: 0; left: 0;
     height: 2px;
-    background: var(--accent);
-    transition: width .4s ease;
+    background: var(--gold);
+    transition: width .38s ease;
     z-index: 200;
   }
 
@@ -346,58 +318,70 @@
   #hint {
     position: fixed;
     bottom: 28px;
-    right: 32px;
+    right: 28px;
     font-size: 11px;
     color: var(--text2);
-    opacity: .5;
+    opacity: .4;
+    letter-spacing: .3px;
   }
 
-  .section-divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  .section-divider .line { flex: 1; height: 1px; background: var(--border); }
-
-  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  .tag-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 9px; }
   .tag {
     font-size: 11px;
-    padding: 2px 10px;
-    border-radius: 12px;
+    padding: 2px 9px;
+    border-radius: 2px;
     border: 1px solid;
   }
-  .tag-blue { color: var(--accent); border-color: var(--accent); background: rgba(88,166,255,.08); }
-  .tag-green { color: var(--accent2); border-color: var(--accent2); background: rgba(63,185,80,.08); }
-  .tag-red { color: var(--accent3); border-color: var(--accent3); background: rgba(247,129,102,.08); }
-  .tag-gold { color: var(--gold); border-color: var(--gold); background: rgba(227,179,65,.08); }
+  .tag-blue   { color: var(--accent);  border-color: var(--accent);  background: rgba(74,126,184,.08); }
+  .tag-green  { color: #6ab87a;        border-color: #4a8a5c;        background: rgba(74,138,92,.08); }
+  .tag-red    { color: #c97060;        border-color: #b54a3a;        background: rgba(181,80,58,.08); }
+  .tag-gold   { color: var(--gold2);   border-color: var(--gold);    background: rgba(201,168,76,.08); }
 
-  .star { color: var(--gold); }
+  .star  { color: var(--gold); letter-spacing: 1px; }
   .note {
-    font-size: 11.5px;
+    font-size: 13px;
     color: var(--text2);
     background: var(--bg3);
-    border-left: 3px solid var(--accent);
-    padding: 8px 14px;
-    border-radius: 0 6px 6px 0;
+    border-left: 2px solid var(--gold);
+    padding: 9px 14px;
+    border-radius: 0 3px 3px 0;
     margin-top: 12px;
     line-height: 1.6;
   }
 
   .highlight-box {
-    background: rgba(88,166,255,.07);
-    border: 1px solid rgba(88,166,255,.3);
-    border-radius: 10px;
-    padding: 20px 24px;
+    background: rgba(201,168,76,.05);
+    border: 1px solid rgba(201,168,76,.25);
+    border-radius: 4px;
+    padding: 22px 28px;
     text-align: center;
   }
   .highlight-box .quote {
     font-size: 17px;
     font-weight: 600;
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.7;
   }
-  .highlight-box .quote em { color: var(--gold); }
+  .highlight-box .quote em { color: var(--gold2); }
+
+  /* project badge */
+  .proj-badge {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .proj-row {
+    padding: 8px 11px;
+    background: var(--bg3);
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .proj-row .pname { font-size: 12px; color: var(--text2); }
+  .proj-row .pval  { font-size: 20px; font-weight: 700; line-height: 1; }
+  .proj-row .psub  { font-size: 11px; color: var(--text2); margin-top: 1px; }
 </style>
 </head>
 <body>
@@ -408,17 +392,27 @@
 
   <!-- ══════════════ SLIDE 1: COVER ══════════════ -->
   <div class="slide active" id="s-cover">
-    <div class="cover-badge">
-      <span>●</span> 新材料项目 · 餐厨垃圾处理赛道
-    </div>
-    <div class="cover-title">西安交大亚临界水热技术<br>投资分析报告</div>
-    <div class="cover-sub">餐厨垃圾 → 高端腐殖酸液体肥 · 全产业链价值评估</div>
-    <div style="height:1px;background:var(--border);margin:24px 0;"></div>
+    <div class="cover-eyebrow">新材料项目 · 餐厨垃圾处理赛道 · 专题研究</div>
+    <div class="cover-title">西安交大亚临界水热技术<br><span>投资分析报告</span></div>
+    <div class="cover-sub">餐厨垃圾 → 腐殖酸高端液体肥 · 全产业链价值评估<br>两个落地案例：西安10 t/d中试 + 广东50 t/d正式项目</div>
+    <div class="cover-rule"></div>
     <div class="cover-meta">
-      <div>技术来源 <span>西安交通大学 / 包蕊等</span></div>
-      <div>发表期刊 <span>可再生能源 2025年第43卷</span></div>
-      <div>对标公司 <span>维尔利 · 伟明环保 · 山高环能 · 旺能环境</span></div>
-      <div>报告日期 <span>2026年5月</span></div>
+      <div class="cover-meta-item">
+        <div class="label">技术来源</div>
+        <div class="value">西安交通大学 / 包蕊团队</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">文献出处</div>
+        <div class="value">可再生能源 2025 · 第43卷</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">对标公司</div>
+        <div class="value">维尔利 · 伟明 · 山高 · 旺能</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">报告日期</div>
+        <div class="value">2026年5月</div>
+      </div>
     </div>
   </div>
 
@@ -426,7 +420,7 @@
   <div class="slide" id="s-tech">
     <div class="slide-label">01 · 技术概览</div>
     <h2>亚临界水热处理工艺路线</h2>
-    <div class="content" style="gap:20px;">
+    <div class="content" style="gap:18px;">
       <div class="flow" style="margin-bottom:4px;">
         <div class="flow-box">
           <div class="step">前处理</div>
@@ -434,9 +428,9 @@
           <div class="param">分选 + 螺旋输送</div>
         </div>
         <div class="flow-arrow">→</div>
-        <div class="flow-box" style="border-color:var(--accent);">
+        <div class="flow-box" style="border-color:var(--gold);">
           <div class="step">核心反应</div>
-          <div class="name" style="color:var(--gold);">水热转化</div>
+          <div class="name" style="color:var(--gold2);">水热转化</div>
           <div class="param" style="color:var(--gold);">280°C · 30 min</div>
         </div>
         <div class="flow-arrow">→</div>
@@ -448,8 +442,8 @@
         <div class="flow-arrow">→</div>
         <div class="flow-box" style="border-color:var(--accent2);">
           <div class="step">增值加工</div>
-          <div class="name" style="color:var(--accent2);">液肥调配</div>
-          <div class="param">NY1106标准</div>
+          <div class="name" style="color:#6ab87a;">液肥调配</div>
+          <div class="param">NY1106 标准</div>
         </div>
       </div>
 
@@ -467,10 +461,27 @@
           <div class="sub">进料经三级预热升温至160°C<br>有效降低系统能耗</div>
         </div>
         <div class="card green">
-          <div class="card-icon">📊</div>
-          <h3>中试规模</h3>
-          <div class="val">10 t/d</div>
-          <div class="sub">年处理3,000吨 · 服务4,000人社区<br>设备总投资327.94万元</div>
+          <h3>两个落地案例</h3>
+          <div class="proj-badge">
+            <div class="proj-row">
+              <div>
+                <div class="pname">西安 · 中试项目（2025）</div>
+                <div class="psub">年处理3,000吨 · 设备投资328万元</div>
+              </div>
+              <div style="text-align:right;">
+                <div class="pval" style="color:#6ab87a;">10 t/d</div>
+              </div>
+            </div>
+            <div class="proj-row" style="border-left:2px solid var(--gold);">
+              <div>
+                <div class="pname">广东 · 正式项目（已落地）</div>
+                <div class="psub">规模化工程验证 · 商业运营</div>
+              </div>
+              <div style="text-align:right;">
+                <div class="pval" style="color:var(--gold2);">50 t/d</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -481,7 +492,7 @@
         </div>
         <div class="card" style="border-color:var(--accent);">
           <h3>本技术路线</h3>
-          <div class="desc">反应温度<strong>280°C</strong>，停留时间<strong>30分钟</strong><br>产品：生物油 + 腐殖酸液体肥<br>单位净利：<em style="color:var(--gold);">1,303元/t</em></div>
+          <div class="desc">反应温度<strong>280°C</strong>，停留时间<strong>30分钟</strong><br>产品：生物油 + 腐殖酸液体肥<br>单位净利：<em style="color:var(--gold2);">1,303元/t</em></div>
         </div>
         <div class="card" style="border-color:var(--accent2);">
           <h3>核心突破点</h3>
@@ -495,7 +506,7 @@
   <div class="slide" id="s-products">
     <div class="slide-label">02 · 核心产品</div>
     <h2>三类产出物与关键参数</h2>
-    <div class="content" style="gap:18px;">
+    <div class="content" style="gap:16px;">
       <div class="split split-3">
         <div class="panel" style="border-color:var(--gold);">
           <h3 style="color:var(--gold);">🛢 生物原油（9%产率）</h3>
@@ -503,8 +514,8 @@
             <tr><td>热值</td><td class="hi">38.63 MJ/kg</td></tr>
             <tr><td>低沸点馏分&lt;343°C</td><td class="hi">82.62%</td></tr>
             <tr><td>主要成分</td><td>脂肪酸、酯类、酰胺类</td></tr>
-            <tr><td>售价参考</td><td class="blue">2.5元/kg</td></tr>
-            <tr><td>单吨废物收益</td><td class="green">225元/t</td></tr>
+            <tr><td>售价参考</td><td class="blue">2.5 元/kg</td></tr>
+            <tr><td>单吨废物收益</td><td class="green">225 元/t</td></tr>
           </table>
           <div class="tag-row">
             <span class="tag tag-gold">工业燃料</span>
@@ -513,7 +524,7 @@
         </div>
 
         <div class="panel" style="border-color:var(--accent2);">
-          <h3 style="color:var(--accent2);">🌱 水相有机液（85%产率）</h3>
+          <h3 style="color:#6ab87a;">🌱 水相有机液（85%产率）</h3>
           <table>
             <tr><td>pH</td><td>5.47</td></tr>
             <tr><td>总有机碳（TOC）</td><td class="green">26.94 g/L</td></tr>
@@ -523,12 +534,12 @@
             <tr><td>重金属</td><td class="green">&lt;0.066 mg/L ✓</td></tr>
           </table>
           <div class="tag-row">
-            <span class="tag tag-green">配制腐殖酸液肥原液</span>
+            <span class="tag tag-green">腐殖酸液肥配制原液</span>
           </div>
         </div>
 
         <div class="panel" style="border-color:var(--accent4);">
-          <h3 style="color:var(--accent4);">💊 腐殖酸液体肥（终产品）</h3>
+          <h3 style="color:#9888cc;">💊 腐殖酸液体肥（终产品）</h3>
           <div style="font-size:12.5px;color:var(--text2);margin-bottom:10px;">每吨废物添加配方：</div>
           <table>
             <tr><td>腐殖酸原料</td><td class="purple">120 kg</td></tr>
@@ -536,7 +547,7 @@
             <tr><td>磷酸二氢钾</td><td>12.69 kg</td></tr>
             <tr><td>硫酸铵</td><td>14.45 kg</td></tr>
             <tr><td>产品标准</td><td class="blue">NY1106-2010</td></tr>
-            <tr><td>单吨废物收益</td><td class="hi">2,473元</td></tr>
+            <tr><td>单吨废物收益</td><td class="hi">2,473 元</td></tr>
           </table>
         </div>
       </div>
@@ -552,7 +563,7 @@
     <div class="slide-label">03 · 经济模型</div>
     <h2>单位经济性：成本 · 收入 · 利润（元/吨废物）</h2>
     <div class="content">
-      <div class="split split-2" style="gap:24px;">
+      <div class="split split-2" style="gap:22px;">
         <div>
           <div class="panel">
             <h3>成本结构（合计 1,795 元/t）</h3>
@@ -562,35 +573,35 @@
               <tr><td>人工</td><td>10.17</td><td class="blue">废物处理成本</td></tr>
               <tr><td>设备折旧</td><td>109</td><td class="blue">废物处理成本</td></tr>
               <tr><td>其他运营</td><td>~74</td><td class="blue">废物处理成本</td></tr>
-              <tr><td><strong>腐殖酸等配肥原料</strong></td><td class="hi"><strong>1,355</strong></td><td class="gold"><strong>液肥产品COGS</strong></td></tr>
+              <tr><td><strong>腐殖酸等配肥原料</strong></td><td class="hi"><strong>1,355</strong></td><td class="hi"><strong>液肥产品COGS</strong></td></tr>
               <tr style="background:var(--bg3);"><td><strong>合计</strong></td><td class="hi"><strong>1,795</strong></td><td>—</td></tr>
             </table>
           </div>
           <div class="note" style="margin-top:12px;">
-            💡 1,355元/t配肥原料成本本质为液肥产品的原料成本（COGS），纯废物处理成本仅<strong style="color:var(--accent2);">≈440元/t</strong>
+            💡 1,355元/t配肥原料本质为液肥COGS，纯废物处理成本仅<strong style="color:#6ab87a;">≈440元/t</strong>
           </div>
         </div>
 
-        <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;flex-direction:column;gap:14px;">
           <div class="panel">
             <h3>收入结构（合计 3,098 元/t）</h3>
             <table>
               <tr><th>来源</th><th>金额（元/t）</th><th>占比</th></tr>
-              <tr><td>政府处置服务费</td><td>400</td><td class="text2">12.9%</td></tr>
-              <tr><td>生物原油销售</td><td>225</td><td class="text2">7.3%</td></tr>
+              <tr><td>政府处置服务费</td><td>400</td><td style="color:var(--text2);">12.9%</td></tr>
+              <tr><td>生物原油销售</td><td>225</td><td style="color:var(--text2);">7.3%</td></tr>
               <tr><td><strong>腐殖酸液体肥销售</strong></td><td class="hi"><strong>2,473</strong></td><td class="hi"><strong>79.8%</strong></td></tr>
               <tr style="background:var(--bg3);"><td><strong>合计</strong></td><td class="hi"><strong>3,098</strong></td><td>—</td></tr>
             </table>
           </div>
           <div class="cards cards-2" style="gap:12px;">
-            <div class="card gold" style="text-align:center;padding:16px;">
+            <div class="card gold" style="text-align:center;padding:14px;">
               <div style="font-size:11px;color:var(--text2);">单吨净利润</div>
-              <div class="val" style="font-size:36px;">1,303</div>
+              <div class="val" style="font-size:38px;">1,303</div>
               <div style="font-size:12px;color:var(--text2);">元/吨废物</div>
             </div>
-            <div class="card green" style="text-align:center;padding:16px;">
+            <div class="card green" style="text-align:center;padding:14px;">
               <div style="font-size:11px;color:var(--text2);">设备投资回收期</div>
-              <div class="val" style="font-size:36px;">0.84</div>
+              <div class="val" style="font-size:38px;">0.84</div>
               <div style="font-size:12px;color:var(--text2);">年（约10个月）</div>
             </div>
           </div>
@@ -607,7 +618,7 @@
       <table>
         <tr>
           <th>维度</th>
-          <th style="color:var(--gold);">西交大水热技术</th>
+          <th style="color:var(--gold2);">西交大水热技术</th>
           <th>维尔利 300190</th>
           <th>山高环能 000803</th>
           <th>旺能环境 002034</th>
@@ -634,8 +645,8 @@
           <td colspan="4" style="text-align:center;color:var(--text2);">固态有机肥/沼渣（竞争激烈）</td>
         </tr>
         <tr>
-          <td>商业规模</td>
-          <td class="red">中试 10 t/d</td>
+          <td>落地规模</td>
+          <td class="blue">10 t/d + 50 t/d<br><span style="font-size:12px;color:var(--gold);">两个落地案例</span></td>
           <td class="green">5,550 t/d</td><td class="green">10,800 t/d</td><td>2,060 t/d</td><td>550 t/d</td>
         </tr>
         <tr>
@@ -650,7 +661,7 @@
         </tr>
         <tr>
           <td>2024年净利润</td>
-          <td class="text2">—</td>
+          <td style="color:var(--text2);">—</td>
           <td class="red">-4.24亿（亏损）</td><td>0.80亿（-32%）</td><td class="green">2.59亿</td><td class="green">15.10亿</td>
         </tr>
       </table>
@@ -663,19 +674,19 @@
   <!-- ══════════════ SLIDE 6: 肥料-机会 ══════════════ -->
   <div class="slide" id="s-fert-opp">
     <div class="slide-label">05 · 叶面肥市场</div>
-    <h2>腐殖酸液体肥 · 销售机会 <span class="tag" style="color:var(--accent2);border-color:var(--accent2);">核心增值来源</span></h2>
+    <h2>腐殖酸液体肥 · 销售机会 <span class="tag" style="color:#6ab87a;border-color:var(--accent2);">核心增值来源</span></h2>
     <div class="content" style="gap:14px;">
 
       <div class="cards cards-3" style="gap:14px;">
         <div class="card green">
           <div class="card-icon">🌏</div>
           <h3>市场规模与增速</h3>
-          <div class="desc">全国水溶肥市场规模超<strong>300亿元</strong>，其中腐殖酸类液体肥年增速约<strong>15%</strong>，是化肥行业增速最快的细分品类，水肥一体化政策持续驱动</div>
+          <div class="desc">全国水溶肥市场规模超<strong>300亿元</strong>，腐殖酸类液体肥年增速约<strong>15%</strong>，是化肥行业增速最快的细分品类，水肥一体化政策持续驱动</div>
         </div>
         <div class="card blue">
           <div class="card-icon">💧</div>
           <h3>适配水肥一体化趋势</h3>
-          <div class="desc">液体肥料可直接溶于灌溉水，通过滴灌/喷灌施用（冲施），契合国家推广水肥一体化政策；设施农业（蔬菜、果树、茶园）溶解性要求高，液体肥天然优势</div>
+          <div class="desc">液体肥料可直接溶于灌溉水，通过滴灌/喷灌施用；设施农业（蔬菜、果树、茶园）对液体肥天然亲和，国家政策持续推动普及</div>
         </div>
         <div class="card gold">
           <div class="card-icon">🏷️</div>
@@ -690,7 +701,7 @@
           <div class="list" style="gap:8px;">
             <div class="list-item">
               <div class="bullet bull-green">1</div>
-              <div><strong>华南设施蔬菜基地</strong>（广东、福建）：水肥一体化普及率高，单体基地采购规范，全年需求稳定，无明显淡旺季</div>
+              <div><strong>华南设施蔬菜基地</strong>（广东、福建）：水肥一体化普及率高，单体基地采购规范，全年需求稳定；广东50 t/d项目地处本地市场</div>
             </div>
             <div class="list-item">
               <div class="bullet bull-green">2</div>
@@ -702,7 +713,7 @@
             </div>
             <div class="list-item">
               <div class="bullet bull-blue">4</div>
-              <div><strong>政府采购/有机农场</strong>：绿色农业认证体系对有机液肥有需求，可申请有机投入品认证后进入高溢价渠道</div>
+              <div><strong>政府采购/有机农场</strong>：绿色认证体系对有机液肥有需求，可申请有机投入品认证后进入高溢价渠道</div>
             </div>
           </div>
         </div>
@@ -724,7 +735,7 @@
             </div>
             <div class="list-item">
               <div class="bullet bull-blue">D</div>
-              <div><strong>政府农资补贴渠道</strong>：申请农业农村部肥料登记证后进入政府补贴采购目录，稳定但周期长</div>
+              <div><strong>政府农资补贴渠道</strong>：取得肥料登记证后进入政府补贴采购目录，稳定但周期长</div>
             </div>
           </div>
         </div>
@@ -735,48 +746,48 @@
   <!-- ══════════════ SLIDE 7: 肥料-风险 ══════════════ -->
   <div class="slide" id="s-fert-risk">
     <div class="slide-label">05 · 叶面肥市场</div>
-    <h2>腐殖酸液体肥 · 销售风险 <span class="tag" style="color:var(--accent3);border-color:var(--accent3);">需重点关注</span></h2>
+    <h2>腐殖酸液体肥 · 销售风险 <span class="tag" style="color:#c97060;border-color:var(--accent3);">需重点关注</span></h2>
     <div class="content" style="gap:14px;">
       <div class="cards cards-2" style="gap:14px;">
         <div class="card red">
           <h3>⚠ 销量规模化压力</h3>
-          <div class="desc">按100 t/d规模，每年产液体肥约<strong>31,000吨</strong>（85%×100t×365天），相当于一个中型农化企业全年销量。需要专业农业销售体系，垃圾处理公司缺乏此核心能力，初期可通过OEM模式快速消纳</div>
+          <div class="desc">50 t/d规模每年产液体肥约<strong>15,500吨</strong>（85%×50t×365天），相当于一个中型农化企业销量。需要专业农业销售体系，垃圾处理公司缺乏此核心能力，初期可通过OEM模式快速消纳</div>
         </div>
         <div class="card red">
           <h3>⚠ 季节性库存风险</h3>
-          <div class="desc">液体肥施用集中于<strong>3-5月</strong>（春季底肥/追肥）和<strong>8-10月</strong>（秋季）；冬季库存积压压力大，液体产品储存期有限（需防冻、防变质）；需提前与下游客户签订年度框架协议</div>
+          <div class="desc">液体肥施用集中于<strong>3-5月</strong>（春季）和<strong>8-10月</strong>（秋季）；冬季库存积压压力大，液体产品储存期有限（需防冻、防变质）；需提前与下游客户签订年度框架协议</div>
         </div>
         <div class="card red">
           <h3>⚠ 品质稳定性挑战</h3>
-          <div class="desc">餐厨垃圾来源波动（高油/高盐日）导致水相有机质含量变化，液肥N/P/K比例需动态调配；连续工业化生产须建立在线检测和配方动态调整系统，保障每批次符合<strong>NY1106标准</strong></div>
+          <div class="desc">餐厨垃圾来源波动（高油/高盐日）导致水相有机质含量变化，液肥N/P/K比例需动态调配；连续工业化须建立在线检测系统，保障每批次符合<strong>NY1106标准</strong></div>
         </div>
         <div class="card red">
           <h3>⚠ 认证与监管周期</h3>
-          <div class="desc">农业农村部肥料正式登记（原农业部公告第1222号体系）需提交<strong>2年田间试验数据</strong>，登记周期约<strong>12-18个月</strong>；期间只能以临时登记或豁免产品销售，影响入市速度和产品定价能力</div>
+          <div class="desc">农业农村部肥料正式登记需提交<strong>2年田间试验数据</strong>，登记周期约<strong>12-18个月</strong>；期间只能以临时登记或豁免产品销售，影响定价能力</div>
         </div>
       </div>
 
       <div class="split split-2" style="gap:14px;">
-        <div class="panel" style="border-color:rgba(247,129,102,.3);">
+        <div class="panel" style="border-color:rgba(181,80,58,.3);">
           <h3>📊 竞争格局风险</h3>
-          <div style="font-size:13px;line-height:1.7;color:var(--text);">
+          <div style="font-size:14px;line-height:1.7;color:var(--text);">
             腐殖酸液体肥赛道已有：<strong>沃夫特、史丹利、金正大</strong>等上市公司布局，国内外企业超500家，<br>
             市场竞争激烈，品牌溢价建立需3-5年时间；<br><br>
             本技术的成本优势（原料来自废物处理）可形成<strong>价格护城河</strong>，但需在品质一致性上取得市场信任
           </div>
         </div>
-        <div class="panel" style="border-color:rgba(88,166,255,.3);">
+        <div class="panel" style="border-color:rgba(74,126,184,.3);">
           <h3>✅ 风险缓释策略</h3>
           <div class="list" style="gap:8px;">
-            <div class="list-item" style="font-size:12.5px;">
+            <div class="list-item" style="font-size:13.5px;">
               <div class="bullet bull-green">短</div>
-              <div>短期：OEM模式快速消纳产量，不自建渠道；确保现金流稳定</div>
+              <div>短期：OEM模式快速消纳产量，利用广东50 t/d项目积累真实销售数据和客户口碑</div>
             </div>
-            <div class="list-item" style="font-size:12.5px;">
+            <div class="list-item" style="font-size:13.5px;">
               <div class="bullet bull-blue">中</div>
               <div>中期：完成NY1106肥料登记；与1-2家农化龙头签订战略供货协议</div>
             </div>
-            <div class="list-item" style="font-size:12.5px;">
+            <div class="list-item" style="font-size:13.5px;">
               <div class="bullet bull-gold">长</div>
               <div>长期：建立自有品牌，进入有机农场/高端果蔬产区，获取溢价</div>
             </div>
@@ -832,26 +843,26 @@
           <td class="red">&lt;10%</td>
           <td>厨余体量小，肥料产量有限</td>
         </tr>
-        <tr style="background:rgba(227,179,65,.06);border:1px solid var(--gold);">
-          <td><strong style="color:var(--gold);">西交大路线</strong></td>
-          <td style="color:var(--gold);font-weight:600;">腐殖酸水溶液体肥</td>
+        <tr style="background:rgba(201,168,76,.05);">
+          <td><strong style="color:var(--gold2);">西交大路线</strong></td>
+          <td style="color:var(--gold2);font-weight:600;">腐殖酸水溶液体肥</td>
           <td style="color:var(--gold);">可直销/OEM/联营，灵活度高</td>
           <td class="hi">2,000～4,000</td>
           <td class="hi">~80%</td>
-          <td style="color:var(--accent2);">销售渠道建设是关键</td>
+          <td style="color:#6ab87a;">销售渠道建设是关键</td>
         </tr>
       </table>
 
       <div class="cards cards-3" style="gap:12px;">
-        <div class="card" style="border-color:var(--border);text-align:center;">
+        <div class="card" style="text-align:center;">
           <div style="font-size:11px;color:var(--text2);">行业固态有机肥均价</div>
-          <div style="font-size:32px;font-weight:800;color:var(--text2);">300</div>
+          <div style="font-size:34px;font-weight:800;color:var(--text2);">300</div>
           <div style="font-size:12px;color:var(--text2);">元/吨产品</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--border);">→</div>
+        <div style="display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--gold);opacity:.7;">→</div>
         <div class="card gold" style="text-align:center;">
           <div style="font-size:11px;color:var(--text2);">腐殖酸液体肥均价</div>
-          <div class="val" style="font-size:32px;">3,000</div>
+          <div class="val" style="font-size:34px;">3,000</div>
           <div style="font-size:12px;color:var(--text2);">元/吨产品 · 10倍溢价</div>
         </div>
       </div>
@@ -866,14 +877,14 @@
       <div class="cards cards-3" style="gap:16px;flex:0;">
         <div class="card gold">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <h3 style="color:var(--gold);margin:0;">路径 A</h3>
+            <h3 style="color:var(--gold2);margin:0;">路径 A</h3>
             <span class="star">★★★★☆</span>
           </div>
           <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px;">直接投资新技术初创主体</div>
-          <div class="desc">西交大成果孵化企业 Pre-A/A 轮介入，获取最大弹性收益</div>
+          <div class="desc">西交大成果孵化企业 Pre-A/A 轮介入；广东50 t/d项目落地已大幅降低工程化风险，当前为最佳介入时机窗口</div>
           <div class="tag-row" style="margin-top:12px;">
             <span class="tag tag-gold">最高弹性</span>
-            <span class="tag tag-red">最高风险</span>
+            <span class="tag tag-red">风险降低中</span>
           </div>
         </div>
         <div class="card blue">
@@ -890,7 +901,7 @@
         </div>
         <div class="card" style="border-color:var(--accent2);">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <h3 style="color:var(--accent2);margin:0;">路径 C</h3>
+            <h3 style="color:#6ab87a;margin:0;">路径 C</h3>
             <span class="star">★★★☆☆</span>
           </div>
           <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px;">关注农化渠道联动机会</div>
@@ -905,15 +916,15 @@
       <div class="panel" style="flex:1;">
         <h3>⏱ 维尔利（300190）重点跟踪逻辑</h3>
         <div class="split split-3" style="gap:16px;margin-top:4px;">
-          <div style="font-size:13px;line-height:1.7;">
+          <div style="font-size:13.5px;line-height:1.7;">
             <div style="color:var(--text2);margin-bottom:6px;">转型动机</div>
-            2024年归母净利润 <strong style="color:var(--accent3);">-4.24亿元</strong>（商誉及资产减值）；厨余运营板块本身仍增长8%，但急需提升单吨盈利能力以摆脱亏损困境
+            2024年归母净利润 <strong style="color:#c97060;">-4.24亿元</strong>（商誉及资产减值）；厨余运营板块本身仍增长8%，但急需提升单吨盈利能力以摆脱亏损困境
           </div>
-          <div style="font-size:13px;line-height:1.7;">
+          <div style="font-size:13.5px;line-height:1.7;">
             <div style="color:var(--text2);margin-bottom:6px;">能力基础</div>
             持有14个项目5,550 t/d运营经验；掌握三相分离、工程总承包能力；可在<strong>现有厂区叠加</strong>水热模块，无需重新拿地
           </div>
-          <div style="font-size:13px;line-height:1.7;">
+          <div style="font-size:13.5px;line-height:1.7;">
             <div style="color:var(--text2);margin-bottom:6px;">触发信号</div>
             关注：① 公告与西交大/相关机构技术合作；② 任一现有项目公告水热改造；③ 有机液体肥料业务独立运营数据披露
           </div>
@@ -933,9 +944,9 @@
           <div style="flex:1;">
             <div style="display:flex;justify-content:space-between;align-items:center;">
               <strong>工程规模验证</strong>
-              <span class="tag tag-red">当前：未达到</span>
+              <span class="tag tag-blue">广东50 t/d已落地 · 持续积累数据中</span>
             </div>
-            <div style="font-size:13px;color:var(--text2);margin-top:4px;">需达到 <strong style="color:var(--text);">≥100 t/d 规模，连续稳定运行6个月以上</strong>，获取工业级能耗、设备腐蚀、进料稳定性等真实工程数据；当前仅10 t/d中试</div>
+            <div style="font-size:13.5px;color:var(--text2);margin-top:4px;">广东50 t/d正式项目落地是<strong style="color:var(--text);">重要工程化里程碑</strong>；仍需积累连续稳定运行6个月以上的能耗、腐蚀、进料稳定性完整数据；下一目标：≥100 t/d规模验证</div>
           </div>
         </div>
         <div class="list-item">
@@ -945,7 +956,7 @@
               <strong>液肥产品认证</strong>
               <span class="tag tag-red">当前：未取得</span>
             </div>
-            <div style="font-size:13px;color:var(--text2);margin-top:4px;">取得 <strong style="color:var(--text);">农业农村部NY1106-2010腐殖酸水溶性肥料正式登记证</strong>；需2年田间试验数据，登记周期12-18个月；取证后方可大规模商业销售并取得定价权</div>
+            <div style="font-size:13.5px;color:var(--text2);margin-top:4px;">取得 <strong style="color:var(--text);">农业农村部NY1106-2010腐殖酸水溶性肥料正式登记证</strong>；需2年田间试验数据，登记周期12-18个月；取证后方可大规模商业销售并取得定价权</div>
           </div>
         </div>
         <div class="list-item">
@@ -953,9 +964,9 @@
           <div style="flex:1;">
             <div style="display:flex;justify-content:space-between;align-items:center;">
               <strong>液肥销售记录</strong>
-              <span class="tag tag-red">当前：无</span>
+              <span class="tag tag-red">当前：广东项目待核查</span>
             </div>
-            <div style="font-size:13px;color:var(--text2);margin-top:4px;">实现 <strong style="color:var(--text);">可核查年销售额≥500万元（含外部客户）</strong>；验证销售渠道可行性；OEM模式下首单大客户合同签订即为重要里程碑</div>
+            <div style="font-size:13.5px;color:var(--text2);margin-top:4px;">目标：<strong style="color:var(--text);">可核查年销售额≥500万元（含外部客户）</strong>；广东50 t/d项目的实际液肥销售合同是关键验证信号；OEM模式下首单大客户合同签订即为重要里程碑</div>
           </div>
         </div>
         <div class="list-item">
@@ -965,7 +976,7 @@
               <strong>工程成本核实</strong>
               <span class="tag tag-blue">参考项</span>
             </div>
-            <div style="font-size:13px;color:var(--text2);margin-top:4px;">工业级EPC成本建议 <strong style="color:var(--text);">≤800万元/10 t·d⁻¹</strong>；核实规模化后设备成本曲线，评估百吨级项目的真实回收期</div>
+            <div style="font-size:13.5px;color:var(--text2);margin-top:4px;">工业级EPC成本建议 <strong style="color:var(--text);">≤800万元/10 t·d⁻¹</strong>；可结合广东50 t/d项目实际EPC数据核实规模化后的设备成本曲线</div>
           </div>
         </div>
         <div class="list-item">
@@ -975,25 +986,25 @@
               <strong>设备长期可靠性</strong>
               <span class="tag tag-blue">参考项</span>
             </div>
-            <div style="font-size:13px;color:var(--text2);margin-top:4px;">水相Cl离子浓度约2,200 mg/L，280°C高温高盐环境对<strong style="color:var(--text);">换热管束、三相分离机</strong>腐蚀影响需≥3年无大修运行记录佐证</div>
+            <div style="font-size:13.5px;color:var(--text2);margin-top:4px;">水相Cl离子浓度约2,200 mg/L，280°C高温高盐环境对<strong style="color:var(--text);">换热管束、三相分离机</strong>腐蚀影响需≥3年无大修运行记录佐证</div>
           </div>
         </div>
       </div>
 
       <div class="cards cards-3" style="gap:12px;">
         <div class="card blue" style="text-align:center;padding:14px;">
-          <div style="font-size:11px;color:var(--text2);">建议介入节点</div>
-          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-top:6px;">2026年下半年</div>
-          <div style="font-size:12px;color:var(--text2);margin-top:4px;">100 t/d工程项目落地公告</div>
+          <div style="font-size:11px;color:var(--text2);">当前阶段（已达到）</div>
+          <div style="font-size:15px;font-weight:700;color:var(--accent);margin-top:6px;">两个落地案例</div>
+          <div style="font-size:12px;color:var(--text2);margin-top:4px;">10 t/d西安 + 50 t/d广东</div>
         </div>
-        <div class="card blue" style="text-align:center;padding:14px;">
+        <div class="card gold" style="text-align:center;padding:14px;">
           <div style="font-size:11px;color:var(--text2);">重要里程碑</div>
-          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-top:6px;">2026-2027年</div>
+          <div style="font-size:15px;font-weight:700;color:var(--gold2);margin-top:6px;">2026-2027年</div>
           <div style="font-size:12px;color:var(--text2);margin-top:4px;">肥料登记证 + 首个农化战略客户</div>
         </div>
-        <div class="card blue" style="text-align:center;padding:14px;">
+        <div class="card" style="text-align:center;padding:14px;">
           <div style="font-size:11px;color:var(--text2);">持续跟踪信号</div>
-          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-top:6px;">维尔利公告</div>
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-top:6px;">维尔利公告</div>
           <div style="font-size:12px;color:var(--text2);margin-top:4px;">水热技术引入或现有项目改造</div>
         </div>
       </div>
@@ -1008,41 +1019,41 @@
       <div class="highlight-box">
         <div class="quote">
           本技术不是"更好的垃圾处理生意"，而是<em>以餐厨垃圾为原料、以废物处置费为补贴的高端液体肥料生意</em>。<br>
-          成败关键不在技术，在于能否同时拥有垃圾处理特许经营权 + 农化销售渠道。
+          广东50 t/d项目落地标志着工程化验证迈出关键一步；成败仍取决于能否同时建立垃圾处理特许经营权 + 农化销售渠道。
         </div>
       </div>
 
       <div class="cards cards-3" style="gap:14px;flex:0;">
         <div class="card green">
-          <div style="font-size:13px;font-weight:600;color:var(--accent2);margin-bottom:10px;">✅ 核心优势</div>
+          <div style="font-size:13px;font-weight:700;color:#6ab87a;margin-bottom:10px;">✅ 核心优势</div>
           <div class="list" style="gap:6px;">
-            <div style="font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">单吨净利理论值<strong> 1,303元</strong>，是行业8-65倍</div>
-            <div style="font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">投资回收期<strong> 0.84年</strong>（中试数据）</div>
-            <div style="font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">30分钟完成反应，效率远高于厌氧消化</div>
-            <div style="font-size:13px;padding:6px 0;">液体肥产品契合水肥一体化政策趋势</div>
+            <div style="font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--border);">单吨净利理论值<strong> 1,303元</strong>，是行业8-65倍</div>
+            <div style="font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--border);">投资回收期<strong> 0.84年</strong>（中试数据）</div>
+            <div style="font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--border);">已有<strong>两个落地案例</strong>：西安10 t/d + 广东50 t/d</div>
+            <div style="font-size:13.5px;padding:6px 0;">液体肥产品契合水肥一体化政策趋势</div>
           </div>
         </div>
         <div class="card red">
-          <div style="font-size:13px;font-weight:600;color:var(--accent3);margin-bottom:10px;">⚠ 核心风险</div>
+          <div style="font-size:13px;font-weight:700;color:#c97060;margin-bottom:10px;">⚠ 核心风险</div>
           <div class="list" style="gap:6px;">
-            <div style="font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">仅10 t/d中试，工程化验证不足</div>
-            <div style="font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">液肥销售渠道建设是核心难点</div>
-            <div style="font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">肥料登记周期长（12-18个月）</div>
-            <div style="font-size:13px;padding:6px 0;">规模化后设备投资和经济性待核实</div>
+            <div style="font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--border);">广东50 t/d项目运营数据待积累</div>
+            <div style="font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--border);">液肥销售渠道建设是核心难点</div>
+            <div style="font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--border);">肥料登记周期长（12-18个月）</div>
+            <div style="font-size:13.5px;padding:6px 0;">规模化后设备投资和经济性待核实</div>
           </div>
         </div>
         <div class="card gold">
-          <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:10px;">📌 行动建议</div>
+          <div style="font-size:13px;font-weight:700;color:var(--gold2);margin-bottom:10px;">📌 行动建议</div>
           <div class="list" style="gap:6px;">
-            <div style="font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">现阶段：<strong>持续跟踪</strong>，不急于重仓</div>
-            <div style="font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">关注维尔利引入水热技术公告</div>
-            <div style="font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">关注100 t/d级工程项目落地</div>
-            <div style="font-size:13px;padding:6px 0;">买点：肥料登记证+首个农化客户同时满足</div>
+            <div style="font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--border);">当前：<strong>重点跟踪</strong>，广东项目是介入信号</div>
+            <div style="font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--border);">核实广东项目液肥销售合同情况</div>
+            <div style="font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--border);">关注维尔利引入水热技术公告</div>
+            <div style="font-size:13.5px;padding:6px 0;">买点：肥料登记证+首个农化客户同时满足</div>
           </div>
         </div>
       </div>
 
-      <div class="note" style="text-align:center;font-size:12px;">
+      <div class="note" style="text-align:center;font-size:12.5px;">
         资料来源：包蕊等（可再生能源 2025·43卷）· 张珂等（能源研究与管理 2025·17卷）· 张怀玉等 · 张岚欣等 · 厨余垃圾废液制备液体肥料技术标准（T/HW）<br>
         东莞市餐厨再生资源利用项目环境验收报告（2026.4）· 各上市公司2024年年报 · 东莞市系列招标文件（2023-2025）
       </div>
